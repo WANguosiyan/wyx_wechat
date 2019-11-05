@@ -1,0 +1,81 @@
+<view>
+<!-- 背景 -->
+  <navBar 
+      title-text="我的" 
+      goBack="1"
+      color="#fff"
+      background="rgba(0,0,0,0)"
+      bindback="back"/>
+  <view class='bg-box'>
+    <image style='width:100%;height:502rpx;' src='/images/mine/bg_01.png'></image>
+  </view>
+  <!-- 头像 -->
+  <view class='touxiang'>
+    <image wx:if='{{headimg}}' style='width:100rpx;height:100rpx;' src='{{domain}}{{headimg}}'></image>
+    <image wx:if='{{!headimg && !avatar}}' style='width:100rpx;height:100rpx;' src='/images/mine/timg.jpg'></image>
+    <image wx:else style='width:100rpx;height:100rpx;' src='{{avatar}}'></image>
+    <!-- <image wx:else style='width:100rpx;height:100rpx;' src='https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ercocBe7vflggDVjib0nbsex9U8qoHC3RsNWI8ty7rNSB4EJJBaia5PUYrc4ALa29UdiajpZyyYaULWQ/132'></image> -->
+  </view>
+  <view wx:if='{{name}}' class='name'>{{name}}</view>
+  <view wx:else class='name'>{{number}}</view>
+  <!-- 设置 -->
+  <view bindtap='toSet' class='set'>
+    <image style='width:44rpx;height:44rpx;' src='/images/mine/set.png'></image>
+  </view>
+  <!-- 我的订单 -->
+  <view class='mine-order-box'>
+    <view bindtap='all_orders' class='mine-order-box-T'>
+      <view class='mine-order'>我的订单</view>
+      <view class='more-order'>查看更多订单</view>
+      <view class='jiantou'></view>
+    </view>
+    <!-- 图标区 -->
+    <view class='mine-order-box-B'>
+      <view bindtap='tounpay' class='mine-order-img'>
+        <view wx:if="{{unpay.length != 0}}" class='info-num'>{{unpay.length}}</view>
+        <image style='width:50rpx;height:50rpx;' src='/images/mine/Order_pay.png'></image>
+        <view>待支付</view>
+      </view>
+      <view bindtap='tounload' class='mine-order-img'>
+        <view wx:if="{{unload.length != 0}}" class='info-num'>{{unload.length}}</view>
+        <image style='width:50rpx;height:50rpx;' src='/images/mine/Order_upload.png'></image>
+        <view>待上传</view>
+      </view>
+      <view bindtap='toaudit' class='mine-order-img'>
+        <view wx:if="{{audit.length != 0}}" class='info-num'>{{audit.length}}</view>
+        <image style='width:50rpx;height:50rpx;' src='/images/mine/Order_examine.png'></image>
+        <view>待审核</view>
+      </view>
+      <view bindtap='tounpass' class='mine-order-img'>
+        <view wx:if="{{unpass.length != 0}}" class='info-num'>{{unpass.length}}</view>
+        <image style='width:50rpx;height:50rpx;' src='/images/mine/Order_pass.png'></image>
+        <view>未通过</view>
+      </view>
+      <view bindtap='tocancal' class='mine-order-img'>
+        <view wx:if="{{cancal.length != 0}}" class='info-num'>{{cancal.length}}</view>
+        <image style='width:50rpx;height:50rpx;' src='/images/mine/Order_refund.png'></image>
+        <view>退款</view>
+      </view>
+    </view>
+  </view>
+  <!-- 分享 -->
+  <view bindtap='share' class='tuiguang'>
+    <image style='width:100%;height:146rpx;' src='/images/mine/bg_02.png'></image>
+  </view>
+  <!-- 申请加盟区 -->
+  <view class='mine-bottom'>
+    <view bindtap='cooperation' class='common'>
+      <image style='width:46rpx;height:46rpx;' src='/images/mine/me_join.png'></image>
+      <text>申请加盟</text>
+    </view>
+    <view bindtap='cooperation2' class='cooperation'>
+      <image style='width:46rpx;height:46rpx;' src='/images/mine/me_cooperation.png'></image>
+      <text>联盟合作</text>
+    </view>
+    <view bindtap='alipay' class='common'>
+      <image style='width:46rpx;height:46rpx;' src='/images/mine/me_alipay.png'></image>
+      <text>我的支付宝</text>
+    </view>
+  </view>
+  <tarBar number="2"/>
+</view>

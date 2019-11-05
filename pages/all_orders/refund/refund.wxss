@@ -1,0 +1,30 @@
+.box{
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+}
+.border{
+  display: inline-block;
+  width: 500rpx;
+  border:2rpx solid gainsboro;
+  margin-left: 30rpx;
+}
+.box view{
+  display: flex;
+  margin-bottom: 30rpx;
+}
+.kong{
+  width: 28rpx;
+}
+.btn{
+  background: #2D70FC;
+  border-radius: 100rpx;
+  line-height: 100rpx;
+  width: 500rpx;
+  height: 100rpx;
+  margin: auto;
+  color: #fff;
+  letter-spacing: 10rpx;
+  margin-top:50rpx;
+  text-align: center;
+}

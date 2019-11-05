@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "kong": "/components/kong/kong"
+  },
+  "navigationBarTextStyle": "black"
+}

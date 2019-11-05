@@ -1,0 +1,280 @@
+@import '/towxml/style/main.wxss';
+/**如果页面有动态主题切换，则需要将使用到的样式全部引入**/
+/**主题配色（浅色样式）**/
+@import '/towxml/style/theme/light.wxss';
+/**主题配色（深色样式）**/
+@import '/towxml/style/theme/dark.wxss';
+page{
+  background: #F3F3F3;
+}
+.swiper-contarner{
+  width: 100%;
+  height: 360rpx;
+}
+.SetMeal-nav{
+  height: 103rpx;
+  padding: 0 32rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #fff;
+}
+.SetMeal-nav-title{
+  font-size:32rpx;
+  font-weight:bold;
+  color:rgba(40,40,40,1);
+}
+.SetMeal-nav-money{
+  color: #FF6633;
+  font-size:20rpx;
+  position: absolute;
+  right: 32rpx;
+}
+.SetMeal-nav-money-Actual{
+  font-size:36rpx;
+}
+.SetMeal-nav-money-Original{
+  color: #959595;
+  text-decoration:line-through;
+}
+/* 广告机 */
+.SetMeal-Advertisement{
+  margin-top: 20rpx;
+  background: #fff;
+  padding:0 32rpx;
+  font-size:20rpx;
+  color: #505050;
+}
+.SetMeal-Advertisement-nav{
+  height: 86rpx;
+  line-height: 86rpx;
+  border-bottom: 1rpx solid #F2F2F2;
+  margin-bottom: 25rpx;
+}
+.SetMeal-Advertisement-nav-title{
+  font-size: 28rpx;
+  color: #292929;
+  margin-right: 10rpx;
+}
+.SetMeal-Advertisement-item{
+  display: flex;
+  height:120rpx;
+  padding-left:150rpx;
+  padding-bottom: 28rpx;
+  position: relative;
+}
+.SetMeal-Advertisement-img{
+  width:120rpx;
+  height:120rpx;
+  border-radius:4rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.SetMeal-Advertisement-info-title{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #292929;
+}
+.SetMeal-Advertisement-info-address{
+  margin:5rpx 0;
+}
+.SetMeal-Advertisement-more{
+  font-size:28rpx;
+  color:rgba(40,40,40,1);
+  text-align: center;
+  position: relative;
+  height: 99rpx;
+  border-top: 1rpx solid #F2F2F2;
+  line-height: 99rpx;
+}
+.jiantou{
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  border-right: 1px solid #787878;
+  border-bottom: 1px solid #787878;
+  transform:rotate(45deg);
+  position: absolute;
+  top: 50%;
+  margin-top: -16rpx;
+  margin-left: 15rpx;
+}
+.jiantouUp{
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  border-left: 1px solid #787878;
+  border-top: 1px solid #787878;
+  transform:rotate(45deg);
+  position: absolute;
+  top: 50%;
+  margin-top: -4rpx;
+  margin-left: 15rpx;
+}
+/* 套餐详情 */
+.SetMeal-detail{
+  padding: 0 31rpx;
+  font-size: 24rpx;
+  color: #272727;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.SetMeal-detail-nav{
+  height: 72rpx;
+  border-bottom: 1px solid #F2F2F2;
+}
+.SetMeal-detail-nav-content{
+  width:170rpx;
+  height: 69rpx;
+  box-shadow: 0 3rpx 0 #FF6633;
+  line-height: 69rpx;
+  text-align: center;
+  margin: auto;
+  color: #FF6633;
+}
+.SetMeal-detail-long{
+  height: 84rpx;
+  line-height: 84rpx;
+  position: relative;
+}
+.SetMeal-detail-longRi{
+  position: absolute;
+  right: 0;
+}
+.SetMeal-detail-date{
+  position: relative;
+  border-top: 1px solid #F2F2F2;
+  padding-left: 148rpx;
+
+}
+.SetMeal-detail-dateLe{
+  width: 120rpx;
+  position: absolute;
+  top: 26rpx;
+  left: 0;
+}
+.SetMeal-detail-dateRi{
+  padding-top: 14rpx;
+}
+.SetMeal-detail-dateRi-time{
+  width:164rpx;
+  height:57rpx;
+  display: inline-block;
+  background:rgba(255,255,255,1);
+  border:1rpx solid rgba(230, 230, 230, 1);
+  border-radius:4rpx;
+  text-align: center;
+  line-height: 57rpx;
+  margin-left: 10rpx;
+  margin-bottom: 14rpx;
+  font-size: 20rpx;
+}
+.SetMeal-detail-time{
+  font-size:24rpx;
+  color:rgba(39,39,39,1);
+  border-top: 1px solid #F2F2F2;
+}
+.SetMeal-detail-time-nav{
+  height: 84rpx;
+  line-height: 84rpx;
+}
+.SetMeal-detail-timeBox{
+  padding-left:132rpx;
+  position: relative; 
+}
+.SetMeal-detail-timeLe{
+  width: 102rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.SetMeal-detail-timeRi{
+  padding-bottom: 10rpx;
+}
+.SetMeal-detail-timeRi-date{
+  display: inline-block;
+  margin-left: 25rpx;
+}
+/* 图文详情 */
+.SetMeal-tuwen{
+  margin-bottom: 200rpx;
+}
+.SetMeal-tuwen-nav{
+  height: 84rpx;
+  border-top: 1px solid #F2F2F2;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.SetMeal-tuwen-line{
+  display: inline-block;
+  width: 60rpx;
+  height: 1px;
+  background: #B4B4B4;
+}
+.SetMeal-tuwen-content{
+  margin: 0 18rpx;
+  font-size: 24rpx;
+  color: #505050;
+}
+.SetMeal-tuwen image{
+  width: 100%;
+}
+/* 立即购买 */
+.SetMeal-buy{
+  width: 100%;
+  height: 108rpx;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  font-size: 24rpx;
+  color: #FF6633;
+  line-height: 108rpx;
+}
+.SetMeal-buy view{
+  display: inline-block;
+}
+.SetMeal-buy-money{
+  margin-left: 32rpx;
+}
+.SetMeal-buy-Actual{
+  font-size:42rpx;
+  font-weight:bold;
+  margin-right: 10rpx;
+}
+.SetMeal-buy-Original{
+  color: #959595;
+  text-decoration:line-through;
+  font-size: 20rpx;
+}
+.SetMeal-buy-now{
+  width:180rpx;
+  height:80rpx;
+  background:rgba(255,102,51,1);
+  box-shadow:0rpx 6rpx 6rpx 0rpx rgba(255,102,51,0.22);
+  border-radius:40rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  position: absolute;
+  right: 32rpx;
+  top: 14rpx;
+}
+.SetMeal-buy-nowF{
+  width:180rpx;
+  height:80rpx;
+  background:rgba(180,180,180,1);
+  border-radius:40rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  position: absolute;
+  right: 32rpx;
+  top: 14rpx;
+}
+.repertory{
+  margin-left: 20rpx;
+  color: #959595;
+}

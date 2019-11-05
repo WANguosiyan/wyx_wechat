@@ -1,0 +1,83 @@
+<view>
+  <navBar 
+    title-text="申请加盟" 
+    goBack="0"
+    color="#000"
+    background="#fff"
+    bindback="back"/>
+  <view>
+    <!-- 单位名称 -->
+    <view class='line'>
+      <text>单位名称</text>
+      <input bindinput='companyName' name="shop_name" placeholder='请填写单位名称' placeholder-class='character'></input>
+    </view>
+    <!-- 经营行业 -->
+    <view class='line'>
+      <text>经营行业</text>
+      <input bindinput='getIndustry' name="shop_name" placeholder='请填写' placeholder-class='character'></input>
+    </view>
+    <!-- 联系人 -->
+    <view class='line'>
+      <text>联系人</text>
+      <input bindinput='getName' name="user_name" placeholder='请输入姓名' placeholder-class='character'></input>
+    </view>
+    <!-- 联系电话 -->
+    <view class='line'>
+      <text>联系电话</text>
+      <input bindinput='getTel' maxlength='11' type='number' name="phone" placeholder='联系人电话' placeholder-class='character'></input>
+    </view>
+    <!-- 已有设备数 -->
+    <view class='line'>
+      <text>已有设备数</text>
+      <input bindinput='getEquipment' type='number' name="equipment_num" placeholder='联盟商请输入数量 ' placeholder-class='character'></input>
+    </view>
+    <!-- 地区 -->
+    <view class='line'>
+      <text>地区</text>
+      <picker 
+        class='choose'
+        mode="region"
+        style='width:550rpx;'
+        bindchange="bindRegionChange"
+        value="{{region}}"><view wx:if="{{IsShow}}">请选择省/市/区</view><view wx:else class='adress'>{{region[0]}}/{{region[1]}}/{{region[2]}}</view></picker>
+    </view>
+    <!-- 详细地址 -->
+    <view class='line'>
+      <text>详细地址</text>
+      <input bindinput='getAddress' name="address" placeholder='街道门牌、房间号等信息' placeholder-class='character'></input>
+    </view>
+    <!-- 设备类型 -->
+    <view class='line'>
+      <text>设备类型</text>
+      <picker 
+        class='choose'
+        mode="selector"
+        bindchange="getType"
+        value="{{index}}"
+        range="{{chooseType}}"
+        style='width:550rpx;'> 
+        <view wx:if="{{isType}}">请选择</view>
+        <view wx:else class='adress'>{{equipment_type}}</view>
+      </picker>
+    </view>
+    <!-- 联系电话 -->
+    <view class='lianxi'>
+      <view>联系电话(微信同号):15357575656</view>
+    </view>
+    <!-- 店铺图片 -->
+    <view class='shangchuan'>
+      <text>店铺图片</text>
+      <view class='item_box'>       
+        <view class="uploader__img" wx:for="{{files}}" wx:key="*this">
+          <view bindtap='uploader_deal' data-imgIndex='{{index}}' class='uploader_deal'>x</view>
+          <image style='width: 162rpx;height: 162rpx;' src="{{item}}" mode="aspectFill" />
+        </view>
+        <view wx:if="{{isCHO}}" bindtap='chooseImage' class='chooseImage'>
+          <image style='width:54rpx;height:54rpx;' src='/images/application/picture.png'></image>
+          <view class='uploading'>上传图片</view>
+        </view>
+      </view>
+    </view>
+    <view bindtap='submit' class='submit'>提交申请</view>
+  </view>
+</view>

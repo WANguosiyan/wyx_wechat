@@ -1,0 +1,14 @@
+
+<view class='box'>
+  <navBar 
+    title-text="广告场景" 
+    goBack="0"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+    <!--富文本编辑代码解析开始-->
+    <import src="/towxml/entry.wxml"/>
+    <template is="entry" data="{{...article}}"/>
+    <!-- 显示什么都没有时显示图片 -->
+    <kong wx:if="{{article == ''}}" zi="暂无内容"/>
+</view>

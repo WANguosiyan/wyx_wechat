@@ -1,0 +1,48 @@
+<view>
+  <navBar 
+    title-text="查询详情" 
+    goBack="0"
+    color="#000"
+    background="#fff"
+    bindback="back"/>
+    <!--轮播图-->
+  <swiper class='swiper-contarner' circular='true' indicator-dots='true' autoplay='true' interval='3000' duration='1500' indicator-color='#fff' indicator-active-color='#7580F3'>
+    <swiper-item wx:for="{{img}}" wx:key="{{index}}" class='swiper-item'>
+      <image style='width:100%;height:750rpx' src='{{domain}}{{item}}'></image>
+    </swiper-item>
+  </swiper>
+  <view class='name'>{{name}}</view>
+  <view class='bg'></view>
+  <view class='info'>
+    <view class='details-type'>
+      <view class='img-box'>
+        <image style='width:32rpx;height:32rpx;' src='/images/detail/details_type.png'></image>
+      </view>     
+      <text>{{type}}</text>
+    </view>
+    <view class='details-type'>
+      <view class='img-box'>
+        <image style='width:32rpx;height:32rpx;' src='/images/detail/details__address.png'></image>
+      </view> 
+      <text>{{address}}</text>
+    </view>
+  </view>
+  <view class='bg'></view>
+  <!-- 详情 -->
+  <view class='particulars'>详情</view>
+  <view class='fuwenben'>
+    <!--富文本编辑代码解析开始-->
+    <import src="/towxml/entry.wxml"/>
+    <template is="entry" data="{{...article}}"/>
+  </view>
+  <!-- 立即购买 -->
+  <view bindtap='btn' class='detail_btn'>立即购买</view>
+</view>
+<!-- 类型框 -->
+<!-- 遮罩层 -->
+<view class="fullbg3 {{isfull3 ?'fullopacity3':'fullHidden3'}}" bindtap="typeBoxQX"></view>
+<view wx:if="{{istypeBox}}" class='typeBox'>
+  <view class='typeBoxS' bindtap='typeBoxSP' data-SP='0'>视频/图片广告</view>
+  <view class='typeBoxB-line1'></view>
+  <view class='typeBoxS' bindtap='typeBoxWZ' data-WZ='1'>文字广告</view>
+</view>

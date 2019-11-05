@@ -1,0 +1,6 @@
+<view class='box'>
+  <navigator class='nav' open-type='switchTab' url='{{item.pagePath}}' wx:for="{{tarList}}" wx:key="{{index}}" data-subscript='{{index}}'>
+    <image style='width:42rpx;height:42rpx;' src='{{number==index?item.selectedIconPath:item.iconPath}}'></image>
+    <view class="{{number==index?'changeColor':''}}">{{item.text}}</view>
+  </navigator>
+</view>

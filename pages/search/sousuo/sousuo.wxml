@@ -1,0 +1,24 @@
+<view>
+  <navBar 
+    title-text="搜索" 
+    goBack="0"
+    color="#000"
+    background="#fff"
+    bindback="back"/>
+    <view class='sousuo'>
+      <view bindtap='bindconfirm' class='sousuo_img'>
+        <image style='width:32rpx;height:32rpx;' src='/images/map/icon_search.png'></image>
+      </view>
+      <input type='text' placeholder='请输入您想投放的广告地点?' placeholder-class='text' bindfocus="focused" bindconfirm="bindconfirm" value='{{value}}' bindinput="finish" confirm-type="search"></input>
+      <view wx:if="{{isShow}}" class='cancel' bindtap='cancel'>取消</view>
+    </view>
+    <!-- 搜索历史 -->
+    <view class='lishi'>
+      <view class='search_lishi'>搜索历史</view>
+      <view class='lishi_box'>
+        <text bindtap='clickItem' wx:for="{{history}}" wx:key="index" data-name='{{item.name}}' class='lishi_item'>{{item.name}}</text>
+      </view>
+    </view>
+    <!-- 清除历史记录  -->
+    <view bindtap='clear' class='qingchu'>清除历史记录</view>
+</view>

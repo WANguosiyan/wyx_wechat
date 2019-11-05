@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tarBar":"/components/tarBar/tarBar",
+    "xialalan": "/components/xialalan/xialalan"
+  }
+}

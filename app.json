@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/duration/duration",
+    "pages/all_orders/video/video",
+    "pages/index/SetMeal/SetMeal",
+    "pages/all_orders/all_orders",
+    "pages/register/register",
+    "pages/all_orders/ElectronicContract/ElectronicContract",
+    "pages/register/Agreement/Agreement",
+    "pages/shopping_trolley/shopping_trolley",
+    "pages/mine/buyOut/buyOut",
+    "pages/index/cooperation/cooperation",
+    "pages/search/tuwen/tuwen",
+    "pages/unpaid/unpaid",
+    "pages/index/share/share",
+    "pages/mine/mine",
+    "pages/index/application/application",
+    "pages/jiameng/jiameng",
+    "pages/mine/set/set",
+    "pages/search/search",
+    "pages/search/result/result",
+    "pages/index/share/draw_money/draw_money",
+    "pages/search/news/news",
+    "pages/index/advertisement_putting/advertisement_putting",
+    "pages/all_orders/refund/refund",
+    "pages/all_orders/text/text",
+    "pages/submit/submit",
+    "pages/mine/login-alipay/login-alipay",
+    "pages/search/details/details",
+    "pages/search/sousuo/sousuo",
+    "pages/index/case/case",
+    "pages/mine/alipay/alipay",
+    "pages/index/video/video",
+    "pages/index/share/invite/invite",
+    "pages/index/share/Returns_detailed/Returns_detailed",
+    "custom-tab-bar/index"
+  ],
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#969696",
+    "selectedColor": "#2D70FC",
+    "backgroundColor": "#EDEDED",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tab/icon_home_default.png",
+        "selectedIconPath": "/images/tab/icon_home_selected.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "查询",
+        "iconPath": "/images/tab/icon_search_default.png",
+        "selectedIconPath": "/images/tab/icon_search_selected.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/images/tab/icon_me_default.png",
+        "selectedIconPath": "/images/tab/icon_me_selected.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "navBar": "/components/navBar/navBar"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

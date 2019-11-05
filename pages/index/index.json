@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "tarBar": "/components/tarBar/tarBar"
+  }
+}

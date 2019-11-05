@@ -1,0 +1,6 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+  "Business_information":"/components/Business_information/Business_information"
+  }
+}

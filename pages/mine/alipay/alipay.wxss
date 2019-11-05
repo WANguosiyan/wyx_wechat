@@ -1,0 +1,47 @@
+.alipay-logo{
+  width: 100%;
+  height: 217rpx;
+  line-height: 300rpx;
+  text-align: center;
+}
+.bg{
+  width: 100%;
+  height: 34rpx;
+  background: #F2F3F4
+}
+.line{
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1rpx solid #F1F1F1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.line text{
+  color: #4F4F4F;
+  font-size: 28rpx;
+  margin-left: 25rpx;
+}
+.line view{
+  color: #A0A0A0;
+  font-size: 28rpx;
+  position:absolute;
+  right: 31rpx;
+}
+.character{
+  color: #DCDCDC;
+  font-size: 28rpx;
+}
+.affirm{
+  width: 687rpx;
+  height: 86rpx;
+  background: #2D70FC;
+  box-shadow:0px 6px 6px 0px rgba(45,112,252,0.22);
+  border-radius: 43rpx;
+  line-height: 86rpx;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 28rpx;
+  margin: 0 auto;
+  margin-top: 79rpx;
+}

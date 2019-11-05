@@ -1,0 +1,93 @@
+<view>
+  <navBar 
+    title-text="查看详情" 
+    goBack="0"
+    color="#000"
+    background="#fff"
+    bindback="back"/>
+  <view>
+    <!--轮播图-->
+    <swiper class='swiper-contarner' circular='true' indicator-dots='true' autoplay='true' interval='3000' duration='1500' indicator-color='#fff' indicator-active-color='#7580F3'>
+      <swiper-item wx:for="{{comboInfo.detail.lunbo}}" wx:key="index" class='swiper-item'>
+        <image style='width:100%;height:360rpx' src='{{domain}}{{item}}'></image>
+      </swiper-item>
+    </swiper>
+    <view class='SetMeal-nav'>
+      <text class='SetMeal-nav-title'>{{comboInfo.detail.title}}</text>
+      <view class='SetMeal-nav-money'>
+        <text>￥</text>
+        <text class='SetMeal-nav-money-Actual'>{{comboInfo.detail.price}}</text>
+        <text wx:if='{{comboInfo.detail.old_price}}' class='SetMeal-nav-money-Original'>￥{{comboInfo.detail.old_price}}</text>
+      </view>
+    </view>
+    <!-- 广告机 -->
+    <view class='SetMeal-Advertisement'>
+      <view class='SetMeal-Advertisement-nav'>
+        <text class='SetMeal-Advertisement-nav-title'>广告机</text>
+        <text>共{{comboInfo.detail.equipment_count}}个</text>
+      </view>
+      <view class='SetMeal-Advertisement-box'>
+        <view wx:for='{{combolist}}' wx:key='' class='SetMeal-Advertisement-item'>
+          <image class='SetMeal-Advertisement-img' src='{{domain}}{{item.image}}'></image>
+          <view class='SetMeal-Advertisement-info'>
+            <view class='SetMeal-Advertisement-info-title'>{{item.name}}</view>
+            <view class='SetMeal-Advertisement-info-address'>{{item.address}}</view>
+            <view class='SetMeal-Advertisement-info-type'>类型：{{item.type_name}}</view>
+          </view>
+        </view>
+        <view wx:if='{{show}}' bindtap='getMore' class='SetMeal-Advertisement-more'>
+          <text>查看其它{{comboNum}}个广告机</text>
+          <text class='jiantou'></text>
+        </view>
+        <view wx:else bindtap='getMore' class='SetMeal-Advertisement-more'>
+          <text>收起</text>
+          <text class='jiantouUp'></text>
+        </view>
+      </view>
+    </view>
+    <!-- 套餐详情 -->
+    <view class='SetMeal-detail'>
+      <view class='SetMeal-detail-nav'>
+        <view class='SetMeal-detail-nav-content'>套餐详情</view>
+      </view>
+      <view class='SetMeal-detail-long'>
+        <text>播放时长</text>
+        <text class='SetMeal-detail-longRi'>{{time}}</text>
+      </view>
+      <view class='SetMeal-detail-date'>
+        <view class='SetMeal-detail-dateLe'>播放时间段</view>
+        <view class='SetMeal-detail-dateRi'>
+          <view wx:for="{{comboInfo.time_hour}}" wx:key="{{index}}" class='SetMeal-detail-dateRi-time'>{{item}}</view>
+        </view>
+      </view>
+      <view class='SetMeal-detail-time'>
+        <view class='SetMeal-detail-time-nav'>播放日期</view>
+        <view wx:for='{{comboInfo.time_date}}' wx:for-index="key" wx:for-item="value" wx:key="index" class='SetMeal-detail-timeBox'>
+          <view class='SetMeal-detail-timeLe'>{{key}}</view>
+          <view class='SetMeal-detail-timeRi'>
+            <view wx:for="{{value}}" wx:key="index" class='SetMeal-detail-timeRi-date'>{{item}}日</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 图文详情 -->
+    <view class='SetMeal-tuwen'>
+      <view class='SetMeal-tuwen-nav'>
+        <text class='SetMeal-tuwen-line'></text>
+        <text class='SetMeal-tuwen-content'>图文详情</text>
+        <text class='SetMeal-tuwen-line'></text>
+      </view>
+      <import src="/towxml/entry.wxml"/>
+      <template is="entry" data="{{...article}}"/>
+    </view>
+    <!-- 立即购买 -->
+    <view class='SetMeal-buy'>
+      <view class='SetMeal-buy-money'>￥</view>
+      <view class='SetMeal-buy-Actual'>{{comboInfo.detail.price}}</view>
+      <view wx:if='{{comboInfo.detail.old_price}}' class='SetMeal-buy-Original'>￥{{comboInfo.detail.old_price}}</view>
+      <view class='repertory'>剩余库存: {{comboInfo.detail.repertory}}</view>
+      <view bindtap='topay' data-disabled='{{comboInfo.disabled}}' class='SetMeal-buy-now'>立即购买</view>
+      <view wx:if='{{comboInfo.detail.repertory == 0}}' class='SetMeal-buy-nowF'>已售罄</view>
+    </view>
+  </view>
+</view>

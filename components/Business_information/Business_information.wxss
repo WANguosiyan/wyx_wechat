@@ -1,0 +1,19 @@
+.information{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 25rpx;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+.name{
+  color: #282828;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.other{
+  color: #646464;
+  font-size: 24rpx;
+}
+.site{
+  margin: 22rpx 0 20rpx 0;
+}

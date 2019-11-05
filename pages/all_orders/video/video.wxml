@@ -1,0 +1,24 @@
+  <view>
+  <navBar 
+    title-text="上传文件" 
+    goBack="0"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+    <view bindtap='chooseImg' class='box'>
+      <view class='heng'></view>
+      <view class='shu'></view>
+      <view class='heng'></view>
+    </view>
+    <view class='zi'>
+      <view>广告支持图片和视屏形式（视屏最大上传500M）</view>
+      <view>图片广告的尺寸：1280*800（最佳） 格式：JPG JPGE</view>
+      <view>视屏广告的格式：AVI MP4 RMVB WMV</view>
+    </view>
+    <view class='show'>
+      <image wx:if="{{tupian.length != 0}}" style='width:600rpx;height:400rpx;' src="{{tupian[0]}}"></image>
+      <video wx:if="{{video.tempFilePath}}" src="{{video.tempFilePath}}"></video>
+    </view>
+    <progress percent="{{progress}}" show-info />
+    <button bindtap='toload' wx:if="{{progress == 100}}" class='button'>确认上传</button>
+</view>

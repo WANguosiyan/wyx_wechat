@@ -1,0 +1,30 @@
+<view>
+  <navBar 
+    title-text="设置" 
+    goBack="0"
+    color="#000"
+    background="#fff"
+    bindback="back"/>
+    <view class='line'></view>
+    <view class='touxiang'>
+      <view>头像</view>
+      <view bindtap='chooseImage' class='touxiang-img'>
+        <image wx:if="{{headimg}}" style='width: 100rpx;height: 100rpx;' src='{{domain}}{{headimg}}'></image>
+        <image wx:if='{{!headimg && !avatar}}' style='width:100rpx;height:100rpx;' src='/images/mine/timg.jpg'></image>
+        <image wx:else style='width:100rpx;height:100rpx;' src='{{avatar}}'></image>   
+      </view>
+    </view>
+    <view bindtap='changename' class='touxiang'>
+      <view>昵称</view>
+      <view wx:if='{{name}}' class='touxiang-name'>{{name}}</view>
+      <view wx:else class='touxiang-name'>{{number}}</view>
+    </view>
+    <view wx:if="{{focus}}" class='changename'>
+      <view class='newname'>新昵称</view>
+      <input bindinput='bindinput' focus='{{focus}}' cursor='20'></input>
+      <view bindtap='queding' class='queding'>确定</view>
+      <view bindtap='quxiao' class='quxiao'>取消</view>
+    </view>
+    <view bindtap='exit' class='log-off'>退出登录</view>
+</view>
+<view wx:if="{{focus}}" class='fullbg'></view>

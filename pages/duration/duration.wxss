@@ -1,0 +1,298 @@
+.remind-width{
+  width: 680rpx;
+  margin: 0 auto;
+}
+.remind{
+  font-size: 20rpx;
+  color: #969696;
+  line-height: 36rpx;
+  margin-top: 24rpx;
+}
+.choose-remind{
+  width: 680rpx;
+  height: 99rpx;
+  font-size: 28rpx;
+  color: #272727;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+.pick-kong{
+  width: 680rpx;
+  height: 99rpx;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.kong{
+  position: absolute;
+  right:30rpx;
+  top: 28rpx;
+}
+.jiantou{
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 3rpx solid #969696;
+  border-right: 3rpx solid #969696;
+  transform:rotate(45deg);
+  position: absolute;
+  right: 5rpx;
+  top: 40rpx;
+}
+.quxian{
+  position: absolute;
+  right: 0rpx;
+  top: 34rpx;
+}
+.benyue{
+  right: 84rpx;
+  font-size: 24rpx;
+  color: #505050;
+}
+/* 日历 */
+.ziti{
+  color: #282828;
+  font-size: 30rpx;
+}
+.zicolor{
+  color: #999;
+}
+.calendar_title{width: 250rpx; margin: 40rpx auto; display: flex; align-items: center; justify-content: space-between;font-size: 20pt;color: #fff;}
+.calendar_title .icon image{width: 60rpx; height: 60rpx;margin: 5rpx auto;}
+.a{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: #F0F0F0;
+  position: relative;
+}
+.aL view{
+  width: 10rpx;
+  height: 10rpx;
+  border-left: 1rpx solid #969696;
+  border-bottom: 1rpx solid #969696;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 10rpx;
+  left: 12rpx;
+}
+.aR view{
+  width: 10rpx;
+  height: 10rpx;
+  border-right: 1rpx solid #969696;
+  border-top: 1rpx solid #969696;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 10rpx;
+  left: 6rpx;
+}
+.calendar{width: 100%;margin-top: 40rpx;background: #fff;border-bottom-right-radius: 20rpx;border-bottom-left-radius: 20rpx;padding: 0 0 20rpx;font-family: FZZhunYuan-M02S;}
+.header{font-size: 0;width: 80%;margin: 0 auto;}
+.header>view{display: inline-block;width: 14.285%;color: #666;font-size: 30rpx;text-align: center;border-bottom: 1px solid #D0D0D0;padding: 20rpx 0;}
+.weekMark{position: relative;width: 80%;margin: 0 auto;}
+.weekMark view{position: absolute;bottom: 0;left: 0;width: 100%;border-bottom: 2px solid #69f;}
+.date-box{font-size: 0;padding: 10rpx 0;width: 80%;margin: 0 auto;}
+.date-box>view{position: relative;display: inline-block;width: 14.285%;color: #282828;text-align: center;vertical-align: middle;}
+.date-head{height: 60rpx;line-height: 60rpx;font-size: 12pt;}
+.nowDay .date-head{width: 60rpx;border-radius: 50%;text-align: center;color: #fff;background-color: #ff9933;margin: 0 auto;}
+.riqi{margin-bottom: 15rpx;}
+/* 下一步 */
+.next{
+  width: 180rpx;
+  height: 80rpx;
+  background:rgba(45,112,252,1);
+  box-shadow:0px 6rpx 6rpx 0px rgba(45,112,252,0.22);
+  border-radius:40rpx;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 80rpx;
+  position: fixed;
+  bottom: 40rpx;
+  left: 285rpx;
+}
+/* 遮罩层 */
+.mask-layer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #999999;
+  opacity:0.4;
+}
+/* 次数框 */
+.offNumBox{
+  display: none;
+}
+.numBox{
+  width: 624rpx;
+  height: 373rpx;
+  background: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -312rpx;
+  margin-top: -120rpx;
+}
+.numBox-title{
+  height: 94rpx;
+  line-height: 94rpx;
+  font-size: 32rpx;
+  color: #505050;
+  margin-left: 32rpx;
+}
+.numBox input{
+  width:562rpx;
+  height:86rpx;
+  background:rgba(246,247,249,1);
+  border:1rpx solid rgba(229, 232, 236, 1);
+  border-radius:6rpx;
+  margin-left: 32rpx;
+  font-size: 28rpx;
+  margin-bottom: 16rpx;
+}
+.character{
+  color: #B4B4B4
+}
+.numBox-hint{
+  width: 548rpx;
+  height: 50rpx;
+  margin-left: 32rpx;
+  font-size: 20rpx;
+  color: #B4B4B4;
+  margin-bottom: 40rpx;
+}
+.numBox-hint text{
+  color: #FF5353;
+}
+.numBox-cancel{
+  float: left;
+  font-size: 28rpx;
+  color: #787878;
+  margin-left: 129rpx;
+}
+.numBox-confirm{
+  float: right;
+  font-size: 28rpx;
+  color: #787878;
+  margin-right: 129rpx;
+}
+/* 时间段框 */
+.picker{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  font-size:32rpx;
+  color:rgba(49,49,49,1);
+  padding-top: 32rpx;
+  background: #fff;
+}
+.picker-top{
+  height: 32rpx;
+  margin-bottom: 45rpx;
+}
+.picker-topL{
+  float: left;
+  margin-left: 28rpx;
+}
+.picker-topR{
+  float: right;
+  margin-right: 28rpx;
+}
+.picker-bottom{
+  width: 100%;
+}
+.picker-item{
+  width: 206rpx;
+  height: 68rpx;
+  display: inline-block;
+  border-radius:34rpx;
+  text-align: center;
+  line-height: 68rpx;
+  font-size: 24rpx;
+  margin-left: 31rpx;
+  margin-bottom: 34rpx;
+}
+.off{
+  background:rgba(255,255,255,1);
+  border:2rpx solid rgba(200, 200, 200, 1);
+  color: #C8C8C8;
+}
+.on{
+  background:rgba(255,238,238,1);
+  border:2rpx solid rgba(255, 120, 120, 1);
+  color:#FF6363;
+}
+/* 选择时间段 */
+.time-item{
+  width:157rpx;
+  height:79rpx;
+  background:rgba(245,245,245,1);
+  border:1rpx solid rgba(230, 230, 230, 1);
+  border-radius:4rpx;
+  display: inline-block;
+  margin-right: 10rpx;
+  margin-bottom: 15rpx;
+}
+.time-itemF{
+  width:157rpx;
+  height:79rpx;
+  background:rgba(245,245,245,1);
+  border:1rpx solid #FF6633;
+  border-radius:4rpx;
+  display: inline-block;
+  margin-right: 10rpx;
+  margin-bottom:15rpx;
+  }
+  .time-item-box .time-itemR{
+  background: #FFE8E0;
+  color: #FF6633
+}
+.time-box{
+  width: 680rpx;
+  font-size: 28rpx;
+  color: #272727;
+  position: relative;
+  border-bottom: 1rpx solid #F0F0F0;
+  margin: auto;
+  overflow: hidden;
+  margin-bottom: 130rpx;
+}
+.time-box-zi{
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.time-item-top{
+  height: 50rpx;
+  font-size: 20rpx;
+  color:#969696;
+  text-align: center;
+  line-height: 50rpx;
+}
+.time-item-topF{
+  height: 50rpx;
+  font-size: 20rpx;
+  color:#282828;
+  text-align: center;
+  line-height: 50rpx;
+  background: #fff;
+}
+.time-item-bottom{
+  height: 28rpx;
+  background: #E6E6E6;
+  font-size: 18rpx;
+  color:#969696;
+  text-align: center;
+  line-height: 30rpx;
+}
+.time-item-bottomF{
+  height: 28rpx;
+  background: #FFC4B1;
+  font-size: 18rpx;
+  color:#FF6633;
+  text-align: center;
+  line-height: 30rpx;
+}

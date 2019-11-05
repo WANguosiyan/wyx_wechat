@@ -1,0 +1,31 @@
+<view>
+  <navBar 
+    title-text="提现"
+    money="{{useful_profit}}"
+    goBack="0"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+  <view class='bg'></view>
+  <view>
+    <!-- 支付宝账号 -->
+    <view class='line'>
+      <text>支付宝账号</text>
+      <view>{{alipay_account}}</view>
+    </view>
+    <!-- 真实姓名 -->
+    <view class='line'>
+      <text>真实姓名</text>
+      <view>{{true_name}}</view>
+    </view>
+    <!-- 提现金额 -->
+    <view class='line'>
+      <text>提现金额</text>
+      <view wx:if="{{isShow}}" class='inp_money'>请输入提现金额（必须为整数）</view>
+      <input wx:else type='number' bindinput='getvalue' name="shop_name" placeholder='请输入提现金额（必须为整数）' placeholder-class='character'></input>
+    </view>
+    <!-- 可用余额 -->
+    <view class='balance'>可用余额：{{useful_profit}}(一元以下不能提现)</view>
+    <view bindtap='affirm' class='affirm'>确认</view>
+  </view>
+</view>

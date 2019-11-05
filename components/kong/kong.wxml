@@ -1,0 +1,4 @@
+<view class='shop-kong'>
+  <image style='width:400rpx;height:300rpx;' src='/images/detail/blank.png'></image>
+  <view>{{zi}}</view>
+</view>

@@ -1,0 +1,31 @@
+ <view class="nav">
+    <!-- 选择地区 -->
+    <view class="nav-son {{shownavindex == 1? 'active' : ''}}" bindtap="listqy" data-nav="1">
+      <view class="content">{{endselect}}</view>
+      <view class="icon"></view>
+    </view>
+    <!-- 选择类型 -->
+    <view class="nav-son borders {{shownavindex == 2? 'active' : ''}}" bindtap="list" data-nav="2">
+      <view class="content">{{endkeys}}</view>
+      <view class="icon"></view>
+    </view>
+  </view>
+  <!-- 选择地区子框 -->
+  <view class="quyu {{qyopen ? 'slidown' : 'slidup'}} {{qyshow ? 'disappear':''}}">
+    <view class="qy quyu-left">
+      <view class="{{select1 == index ? 'current' : ''}}" wx:for="{{cityleft}}" bindtap="selectleft" data-city='{{index}}' wx:key="unique" data-item='{{item.region}}' data-cityId='{{item.id}}'>
+        {{item.region}}
+      </view>
+    </view>
+    <view class="qy quyu-center">
+      <view class="current2" wx:for="{{citycenter}}" bindtap="selectcenter" data-city='{{index}}' data-item='{{item.region}}' data-cityId='{{item.id}}' wx:key="unique">
+        {{item.region}}
+      </view>
+    </view>
+  </view>
+  <!-- 选择类型子框 -->
+  <view class="temp temp1 {{nzopen ? 'slidown' : 'slidup'}} {{nzshow ? 'disappear':''}}">
+    <view class="temp1_son {{type == index ? 'current' : ''}}" wx:for="{{typeList}}" wx:key="index" bindtap='chooseType' data-type='{{index}}' data-item='{{item.name}}' data-type_id='{{item.id}}'><text>{{item.name}}</text></view>
+  </view>
+  <!-- 遮罩层 -->
+  <view class="fullbg {{isfull ?'fullopacity':'fullHidden'}}" bindtap="hidebg"></view>

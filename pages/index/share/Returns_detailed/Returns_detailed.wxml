@@ -1,0 +1,32 @@
+<view>
+  <navBar 
+    title-text="分销" 
+    goBack="0"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+  <!-- 可用收益 -->
+  <view>
+    <view class='bg'></view>
+    <view class='earnings_box'>
+      <view class='earnings_boxT'>
+        <view class='earnings_line'></view>
+        <view class='earnings_character'>可用收益</view>
+      </view>
+      <view class='earnings_usableM'><text>13.45</text>元</view>
+      <view class='earnings_accumulativeM'>累计收益864.00</view>
+      <view bindtap='toalipay' class='withdraw_deposit'>提现</view>
+    </view>
+  </view>
+  <view class='bg'></view>
+  <!-- 交易记录 -->
+  <view class='transaction_record_box'>
+    <view class='transaction_record' wx:for="{{list}}" wx:key="{{index}}">
+      <view class='phone'>
+        <view class='phone_number'>{{item.name}}</view>
+        <view class='usering_time'>{{item.create_time}}</view>
+      </view>
+      <view class='money'>{{item.money}}</view>
+    </view>
+  </view>
+</view>

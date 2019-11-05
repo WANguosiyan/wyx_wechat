@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Business_information":"/components/Business_information/Business_information",
+    "kong": "/components/kong/kong"
+  }
+}

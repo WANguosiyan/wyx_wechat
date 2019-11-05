@@ -1,0 +1,39 @@
+page{
+  background: #F5F5F5;
+}
+.time{
+  font-size: 24rpx;
+  color: #B3B3B3;
+  text-align: center;
+  height: 110rpx;
+  line-height: 110rpx;
+}
+.wrap{
+  margin-bottom: 50rpx;
+}
+.box{
+  display: flex;
+}
+.zi{
+  width:500rpx;
+  background:rgba(255,255,255,1);
+  border-radius:8rpx;
+  color: #282828;
+  font-size: 28rpx;
+  padding: 25rpx 26rpx 25rpx 26rpx;
+  line-height: 48rpx;
+  margin-left: 22rpx;
+  position: relative;
+}
+.san{
+  width: 20rpx;
+  height: 20rpx;
+  background: #fff;
+  position: absolute;
+  top: 35rpx;
+  left: -10rpx;
+  transform:rotate(45deg); 
+}
+.kong{
+  height: 100rpx;
+}

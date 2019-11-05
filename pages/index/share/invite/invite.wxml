@@ -1,0 +1,46 @@
+<view>
+  <navBar 
+    title-text="分销" 
+    goBack="0"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+  <view class='bg'></view>
+  <!-- 我的邀请 -->
+  <view class='earnings_box'>
+    <view class='earnings_boxT invite_boxT'>
+      <view class='earnings_line'></view>
+      <view class='earnings_character'>我的邀请</view>
+    </view>
+    <view class='invite'>
+      <view class='invite_people invite_consumption'>
+        <text class='invite_money'>{{member_money}}</text><text>元</text>
+        <view>好友消费</view>
+      </view>
+      <view class='invite_line'></view>
+      <view class='invite_people'>
+        <text class='invite_money'>{{member_count}}</text><text>人</text>
+        <view>成功邀请</view>
+      </view>
+    </view>
+  </view>
+  <view class='bg'></view>
+  <!-- 邀请名单 -->
+  <view>
+    <view class='name_list'>
+      <view class='designation'>邀请人名称</view>
+      <view class='invite_earnings'>累计收益</view>
+    </view>
+    <view class='invite_list' wx:for="{{list}}" wx:key="index">
+      <view class='designation invite_img_box'>
+        <view wx:if="{{item.image}}" class='invite_img'><image style='width:60rpx;height:60rpx;' src='{{domain}}{{item.image}}'></image></view>
+        <view wx:else class='invite_img'><image style='width:60rpx;height:60rpx;' src='/images/mine/timg.jpg'></image></view>
+      </view>
+      <view class='invite_list_one'>
+        <view class='phone_number'>{{item.mobile}}</view>
+        <view class='grade'>{{item.grade}}级</view>
+      </view>
+      <view class='invite_earnings proceeds'>{{item.money}}</view>
+    </view>
+  </view>
+</view>

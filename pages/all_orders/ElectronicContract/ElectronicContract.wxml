@@ -1,0 +1,48 @@
+<view>
+  <navBar 
+    title-text="电子合同" 
+    goBack="0"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+    <view class='box'>
+      <view class='title'>广告位租赁合同</view>
+    <view class='First-party'><text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;甲方：安徽万业兴广告传媒有限公司</text></view>
+    <view class='Party-B'><text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;乙方：{{name}}</text></view>
+    <text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;甲、乙双方本着平等互利、友好协商的原则，就乙方租用甲方广告位发布广告事宜，根据国家相关法律法规，签订本广告位租赁合同，以资双方共同遵守：</text>
+    <view class='Subheading'><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;第一条、广告位类别、位置及规格</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;1.1乙方租用的广告位属于</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■ LED彩屏广告位</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;1.2乙方租用的广告位位于:甲方在城区范围内且有效期内的所属显示屏广告位</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;1.3乙方租用的广告位开放时间为：具体参照甲方广告机开放时间为准，已过期或已被租赁时段不因乙方需求做调整。</text></view>
+    <view class='Subheading'><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;第二条、广告位租赁期限及广告内容</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;2.1广告位租赁合同期限自  {{start}}  之日起至 {{end}} 之日止</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;2.2乙方在所发布广告的内容为：仅限于发布合法合规的自有广告内容。</text></view>
+    <view class='Subheading'><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;第三条、租赁费用及付款方式</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;3.1乙方须向甲方缴纳广告位租赁费：具体单价以甲方系统生成价格为准。</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;3.2上述款项乙方同意按如下付款方式：根据用户APP自动生成的单价，网络支付；</text></view>
+    <view class='Subheading'><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;第四条、广告的制作与播放</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;4.1广告画面由乙方自行设计或委托甲方协助制作，广告的内容和表现形式须经甲方审查认可；</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;4.2乙方自行制作、委托甲方制作的广告画面之产权及版权均由乙方所有，因广告的版式或内容所引致的纠纷、诉讼概由乙方负责解决；</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;4.3广告由甲方设备自行播放，播放前甲方应向乙方确认画面效果。</text></view>
+    <view class='Subheading'><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;第五条、广告的管理</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;5.1乙方广告内容必须符合《中华人民共和国广告法》的要求，按该法的规定提供相应的证明文件。对违法、不健康、有损甲方形象或信誉的广告，甲方有权拒绝乙方投放。乙方拒不更换的，甲方有权单方面解除合同，乙方已交费用通过系统退还。</text></view>
+    <view class='Subheading'><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;第六条、合同的解除和续签</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;6.1甲方有权将租期已满既未续签合同又未另交广告位租赁费的广告位予以停播。</text></view>
+    <view class='Subheading'><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;第七条、其他</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;7.1租赁期内，若因不可抗力因素(包括但不限于地震、台风、签订本合同时尚未知悉的政府管制因素等)导致该广告位灭失、毁坏，不能继续租用的，甲乙双方互不承担责任，已收取的广告费不予退回。</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;7.2甲方提前终止合同的，按租赁时间退还剩余部分广告位租赁费； 因乙方自身原因需要变更、延期广告位租赁播放日期的，经甲方书面确认的订单，乙方需另支付甲方合同金额的30%，作为退换手续费。</text></view>
+    <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;7.3本合同未尽事宜，双方协商解决，协商不成，可向合同履行地人民法院提起诉讼。</text></view>
+    <view class='bottom'>
+      <view class='bottomLeft'>
+        <image class='bottomLeft-img' src='/images/mine/contract.png'></image>
+        <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;甲方：安徽万业兴广告传媒有限公司</text></view>
+        <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;日期：{{create_time}}</text></view>
+      </view>
+      <view class='bottomRight'>
+        <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;乙方：{{name}}</text></view>
+        <view><text decode="true" class='zi'>&nbsp;&nbsp;&nbsp;&nbsp;日期：{{create_time}}</text></view>
+      </view>
+    </view>
+    </view>
+</view>

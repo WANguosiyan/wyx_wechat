@@ -1,0 +1,119 @@
+.bg{
+  width: 100%;
+  height: 24rpx;
+  background: #EDEDED;
+}
+/* 我的邀请 */
+.earnings_box{
+  width:100%;
+  height:138rpx;
+  background:rgba(255,255,255,1);
+  padding: 25rpx 0 23rpx 24rpx;
+  position: relative;
+  margin-bottom: 25rpx;
+}
+.earnings_boxT{
+  margin-bottom: 10rpx;
+}
+.earnings_boxT view{
+  display: inline-block;
+}
+.earnings_line{
+  width: 4rpx;
+  height: 24rpx;
+  background: #2E73FF;
+}
+.earnings_character{
+  width:128rpx;
+  height:31rpx;
+  font-size:32rpx;
+  color:rgba(40,40,40,1);
+  line-height:31rpx;
+  margin-left: 17rpx;
+  margin-right: 530rpx;
+}
+.invite_boxT{
+  margin-bottom: 20rpx;
+}
+.invite{
+  display: flex;
+  height: 72rpx;
+}
+.invite_line{
+  width: 0rpx;
+  height:72rpx;
+  border-left: 1rpx dashed #969696;
+  border-right: 1rpx dashed #969696;
+  margin: 0 140rpx 0 140rpx;
+}
+.invite_people{
+  font-size:24rpx;
+  color:rgba(40,40,40,1);
+  text-align: center;
+}
+.invite_consumption{
+  margin-left: 116rpx;
+}
+.invite_money{
+  color: #F55429;
+  font-size: 28rpx;
+}
+/* 邀请名单 */
+.name_list{
+  width: 100%;
+  height: 79rpx;
+  line-height: 79rpx;
+  border-bottom: 1rpx solid #E6E6E6;
+  color: #282828;
+  font-size: 32rpx;
+}
+.designation{
+  float: left;
+  margin-left: 23rpx;
+}
+.invite_earnings{
+  float: right;
+  margin-right: 250rpx;
+}
+.invite_list{
+  width: 100%;
+  height: 108rpx;
+  border-bottom: 1rpx solid #E6E6E6;
+}
+.invite_img_box{
+  height: 108rpx;
+  display: flex;
+  align-items: center;
+}
+.invite_img{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: aqua;
+  overflow: hidden;
+}
+.invite_list_one{
+  float: left;
+  height: 108rpx;
+  margin-left: 15rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.phone_number{
+  color: #282828;
+  font-size: 28rpx;
+}
+.grade{
+  color: #9F9F9F;
+  font-size: 20rpx;
+}
+.proceeds{
+  height: 108rpx;
+  line-height: 108rpx;
+  color: 28rpx;
+  font-size: 28rpx;
+  margin-right: 304rpx;
+}
+
+

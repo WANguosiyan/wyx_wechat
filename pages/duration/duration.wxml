@@ -1,0 +1,78 @@
+<view>
+  <navBar 
+    title-text="选择时长" 
+    goBack="0"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+  <view class='remind remind-width'>请用户尽量购买当前所在时间段两个小时后的时间段，以避免出现审核不及时广告不能及时播放的问题</view>
+  <view class='remind-width choose-remind'>
+    <view>选择播放日期</view>
+    <view class='quxian benyue'>本月全选</view>
+    <view wx:if="{{isIcom}}" class='quxian'>
+      <icon size='18' wx:if="{{selectAllStatus}}" type="success" color="#2D70FC" bindtap="selectAll"/>
+      <icon size='18' wx:else type="circle" bindtap="selectAll"/>
+    </view>
+  </view>
+    <!-- 日历 -->
+  <view class='calendar_title flex_nowrap'>
+    <view class='icon' bindtap='lastMonth'>
+      <view class='a aL'><view></view></view>
+    </view>
+    <view class='ziti'>{{year}}年{{month}}月</view>
+    <view class='icon' bindtap='nextMonth'>
+      <view class='a aR'><view></view></view>
+    </view>
+  </view>
+<!-- 日历主体 -->
+  <view class='calendar'>
+    <view class='header'>
+      <view wx:for='{{date}}' wx:key=''>{{item}}
+        <view></view>
+      </view>
+    </view>
+    <view class='date-box'>
+      <block wx:for='{{dateArr}}' wx:key='index'>
+        <view class='riqi {{item.state==2?"nowDay":""}}'>
+          <view class='date-head' data-key='{{index}}' data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}' bindtap='select_date'>
+            <view class='{{item.isPass?"zicolor":""}}'>{{item.dateNum}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <picker bindchange="getTime" mode = "multiSelector" value="{{multiIndex2}}" range="{{chooseTime}}" class='remind-width choose-remind'>
+    <view class='pick-kong'></view>
+    <view class='zi'>选择广告时长</view>
+    <text class='kong'>{{chooseTime[0][multiIndex2[0]]}}{{chooseTime[1][multiIndex2[1]]}}</text>
+    <view class='jiantou'></view>
+  </picker>
+  <view mode="selector" range='{{chooseNum}}' bindtap="getNum" class='remind-width choose-remind'>
+    <view class='zi'>每个时间段重复次数</view>
+    <text wx:if="{{inpCishu}}" class='kong'>{{inpCishu}}次</text>
+    <view class='jiantou'></view>
+  </view>
+  <view class='time-box'>
+    <view class='time-box-zi'>选择播放时段</view>
+    <view class='time-item-box'>
+      <view bindtap="translate" wx:for='{{shiduan}}' data-timeIn='{{index}}' wx:key='' class="{{item.isCheck?'time-itemF':'time-item'}}">
+        <view class="{{allSecond <= item.time_long?'time-item-topF':'time-item-top'}} {{item.isCheck?'time-itemR':''}}">{{item.hour}}</view>
+        <view class="{{item.isshow&&allSecond <= item.time_long?'time-item-bottomF':'time-item-bottom'}}">剩余{{item.timelong}}钟</view>
+      </view>
+    </view>
+  </view>
+  <!-- 下一步 -->
+  <view bindtap='submit' class='next'>下一步</view>
+  <!-- 遮罩层 -->
+  <view class='{{ismasklayer?"mask-layer":""}}'></view>
+  <!-- 次数框 -->
+  <view class='{{isNumBox?"numBox":"offNumBox"}}'>
+    <view class='numBox-title'>每个时间段重复次数</view>
+    <input value='{{inpCishu}}' type='number' bindinput='getCiShu' placeholder='请输入每个小时段重复次数' placeholder-class='character'></input>
+    <view class='numBox-hint'>根据您选择的广告时长,系统推荐您每个时间段播放重复次数只能选择在<text>{{cishu}}</text>次以下</view>
+    <view>
+      <view bindtap='numBoxCancel' class='numBox-cancel'>取消</view>
+      <view bindtap='numBoxConfirm' class='numBox-confirm'>确认</view>
+    </view>
+  </view>
+</view>

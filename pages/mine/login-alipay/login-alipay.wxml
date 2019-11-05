@@ -1,0 +1,19 @@
+<view>
+  <navBar 
+    title-text="提现账户" 
+    goBack="0"
+    agreement="11"
+    color="#000"
+    background="#fff"
+    bindback="back"/>
+    <view class='bg'></view>
+    <view class='line'>
+      <text>支付宝账户</text>
+      <input name="shop_name" maxlength="11" type='number' bindinput='inpAccount' placeholder='请输入正确的支付宝账户' placeholder-class='character'></input>
+    </view>
+    <view class='line'>
+      <text>真实姓名</text>
+      <input name="shop_name" placeholder='请输入真实姓名' bindinput='inpName' placeholder-class='character'></input>
+    </view>
+    <view bindtap='affirm' class='affirm'>确认</view>
+</view>

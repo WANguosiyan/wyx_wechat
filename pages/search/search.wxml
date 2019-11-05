@@ -1,0 +1,94 @@
+<view class='warp'>
+  <navBar
+    title-text="查询" 
+    goBack="1"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+    <!-- 地图 -->
+    <map class='ditu' scale='12' style='height:calc(100% - 130px);' latitude="{{latitude}}" longitude="{{longitude}}" markers="{{lists}}" show-location="true" bindmarkertap="bindmarkertap" bindcallouttap='bindcallouttap'>
+      <!-- 小图标 -->
+      <cover-view class='query queryL query_location' bindtap="getCenterLocation">
+        <cover-image style='width:56rpx;height:56rpx;' src='/images/map/query_location.png'></cover-image>
+      </cover-view>
+      <cover-view bindtap='tonews' class='query queryL query_news'>
+        <cover-image style='width:56rpx;height:56rpx;' src='/images/map/query_news.png'></cover-image>
+        <cover-view wx:if="{{newNum}}" class='query_shop_num'>{{newNum}}</cover-view>
+      </cover-view>
+      <cover-view bindtap='totuwen' class='query queryL query_problem'>
+        <cover-image style='width:56rpx;height:56rpx;' src='/images/map/query_problem.png'></cover-image>
+      </cover-view>
+      <cover-view bindtap='shopping_trolley' class='query queryR query_shop'>
+        <cover-view class='query_shop_box'>
+        <cover-image style='width:56rpx;height:56rpx;' src='/images/map/query_shop.png'></cover-image>
+        <cover-view wx:if="{{shopNum}}" class='query_shop_num'>{{shopNum}}</cover-view>
+        </cover-view>
+      </cover-view>
+      <cover-view bindtap='sousuo' class='query queryR query_search'>
+        <cover-image style='width:56rpx;height:56rpx;' src='/images/map/query_search.png'></cover-image>
+      </cover-view>
+      <!-- 遮罩层 -->
+      <cover-view class="fullbg {{isfull ?'fullopacity':'fullHidden'}}" bindtap="hidebg"></cover-view>
+      <!-- 遮罩层 -->
+      <cover-view class="fullbg2 {{isfull2 ?'fullopacity2':'fullHidden2'}}" bindtap="hidebg2"></cover-view>
+      <!-- 选择地区子框 -->
+      <cover-view class='kong'></cover-view>
+      <cover-view class="quyu {{qyopen ? 'slidown' : 'slidup'}} {{qyshow ? 'disappear':''}}">
+        <cover-view class="qy quyu-left">
+          <cover-view class="query-item {{select1 == index ? 'current' : ''}}" wx:for="{{cityleft}}" bindtap="selectleft" data-city='{{index}}' data-item='{{item.region}}' data-cityId='{{item.id}}' wx:key="unique">
+            {{item.region}}
+          </cover-view>
+        </cover-view>
+        <cover-view class="qy quyu-center">
+          <cover-view class="current2" wx:for="{{citycenter}}" bindtap="selectcenter" data-item='{{item.region}}' data-city='{{index}}' data-cityId='{{item.id}}' wx:key="unique">
+            {{item.region}}
+          </cover-view>
+        </cover-view>
+      </cover-view>
+      <!-- 选择类型子框 -->
+      <cover-view class="temp temp1 {{nzopen ? 'slidown' : 'slidup'}} {{nzshow ? 'disappear':''}}">
+        <cover-view class="temp1_son {{type == index ? 'current3' : ''}}" wx:for="{{typeList}}" wx:key="index" bindtap='chooseType' data-item='{{item.name}}' data-type='{{index}}' data-type_id='{{item.id}}'><cover-view>{{item.name}}</cover-view></cover-view>      
+      </cover-view>
+       <!-- 选择框 -->
+      <cover-view class="nav">
+        <!-- 选择地区 -->
+        <cover-view class="nav-son {{shownavindex == 1? 'active' : ''}}" bindtap="listqy" data-nav="1">
+          <cover-view class="content">{{endselect}}</cover-view>
+          <cover-view class="icon"></cover-view>
+        </cover-view>
+        <!-- 选择类型 -->
+        <cover-view class="nav-son borders {{shownavindex == 2? 'active' : ''}}" bindtap="list" data-nav="2">
+          <cover-view class="content">{{endkeys}}</cover-view>
+          <cover-view class="icon"></cover-view>
+        </cover-view>
+      </cover-view>
+      <!-- 商家信息框 -->
+      <cover-view wx:if="{{isInfo}}" class='map-info'>
+        <cover-view class='shop-name'>{{lists[xiabiao].name}}</cover-view>
+        <cover-view class='shop-content'>
+          <cover-view class='shop-imgBox'>
+            <cover-image style='width:100%;' src='{{domain}}{{lists[xiabiao].image}}' mode='aspectFit'></cover-image>
+          </cover-view>
+          <cover-view class='shop-infoBox'>
+            <cover-view class='weizhi'>
+              <cover-view class='weizhiL'>位置:</cover-view>
+              <cover-view class='weizhiR'>{{lists[xiabiao].address}}</cover-view>
+            </cover-view>
+            <cover-view>类型:{{lists[xiabiao].type_name}}</cover-view>
+            <cover-view class='shop-btn'>
+              <cover-view bindtap='toDetails' class='shop-btnL'>查看详情</cover-view>
+              <cover-view bindtap='add' class='shop-btnR'>添加购物车</cover-view>
+            </cover-view>
+          </cover-view>
+        </cover-view>
+        <cover-view bindtap='del' class='del'><cover-view class='del-x'>X</cover-view></cover-view>
+      </cover-view>
+      <cover-view wx:if="{{isInfo}}" class='sanjiao'></cover-view>
+      <!-- 批量购买 -->
+    <cover-view bindtap='advertisement_putting' class='bulk_buying'>
+      <cover-image style='width:40rpx;height:40rpx;' src='/images/map/query_pay.png'></cover-image>
+      <cover-view>批量购买</cover-view>
+    </cover-view>
+    </map>
+</view>
+<tarBar number="1"/>

@@ -1,0 +1,56 @@
+.sousuo{
+  width: 100%;
+  height: 95rpx;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #000;
+  position: relative;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+.sousuo input{
+  width: 500rpx;
+}
+.sousuo_img{
+  margin: 0 24rpx 0 31rpx;
+  display: flex;
+  align-items: center;
+}
+.text{
+  color: #969696;
+  font-size: 24rpx;
+}
+.cancel{
+  position: absolute;
+  right: 18rpx;
+  font-size: 24rpx;
+  color: #000;
+}
+/* 搜索历史 */
+.search_lishi{
+  font-size:32rpx;
+  color:rgba(150,150,150,1);
+  margin: 44rpx 0 30rpx 46rpx;
+}
+.lishi_box{
+  margin-left: 64rpx;
+}
+.lishi_item{
+  display: inline-block;
+  height: 60rpx;
+  background: #F9F9F9;
+  border-radius:2rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  color: #505050;
+  padding: 0 18rpx 0 19rpx;
+  margin-right: 58rpx;
+  margin-bottom: 38rpx;
+}
+.qingchu{
+  font-size: 20rpx;
+  color: #969696;
+  position: fixed;
+  bottom: 39rpx;
+  left: 315rpx;
+}

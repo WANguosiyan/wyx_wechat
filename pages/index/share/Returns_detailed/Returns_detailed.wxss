@@ -1,0 +1,102 @@
+
+/* 可用收益 */
+.bg{
+  width: 100%;
+  height: 20rpx;
+  background: #EDEDED; 
+}
+.earnings_box{
+  width:100%;
+  height:138rpx;
+  background:rgba(255,255,255,1);
+  padding: 25rpx 0 23rpx 24rpx;
+  position: relative;
+  /* margin-top: 20rpx;
+  margin-bottom: 20rpx; */
+}
+.earnings_boxT{
+  margin-bottom: 10rpx;
+}
+.earnings_boxT view{
+  display: inline-block;
+}
+.earnings_line{
+  width: 4rpx;
+  height: 24rpx;
+  background: #2E73FF;
+}
+.earnings_character{
+  width:128rpx;
+  height:31rpx;
+  font-size:32rpx;
+  color:rgba(40,40,40,1);
+  line-height:31rpx;
+  margin-left: 17rpx;
+  margin-right: 530rpx;
+}
+.earnings_usableM{
+  width:173rpx;
+  height:43rpx;
+  font-size:r48px;
+  line-height:43rpx;
+  margin-bottom: 15rpx;
+}
+.earnings_usableM text{
+  color:rgba(245,84,41,1);
+}
+.earnings_accumulativeM{
+  height:23rpx;
+  font-size:24rpx;
+  color:rgba(159,159,159,1);
+  line-height:24rpx;
+}
+.withdraw_deposit{
+  width:98rpx;
+  height:48rpx;
+  background:rgba(45,112,252,1);
+  border-radius:24rpx;
+  color: #FFFFFF;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  text-align: center;
+  position: absolute;
+  bottom: 34rpx;
+  right: 40rpx;
+}
+/* 交易记录 */
+.transaction_record_box{
+  width: 100%;
+  background: #fff;
+}
+.transaction_record{
+  width: 100%;
+  height: 108rpx;
+  background: #fff;
+  border-top: 1rpx solid #E6E6E6;
+}
+.phone{
+  float: left;
+  margin-left: 22rpx;
+  height: 108rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.money{
+  float: right;
+  margin-right: 25rpx;
+  font-size: 24rpx;
+  color: #FF5527;
+  height: 108rpx;
+  line-height: 108rpx;
+}
+.phone_number{
+  font-size: 28rpx;
+  color: #282828;
+}
+.usering_time{
+  color: #9F9F9F;
+  font-size: 24rpx;
+}
+
+

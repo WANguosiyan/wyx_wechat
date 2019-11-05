@@ -1,0 +1,48 @@
+<view>
+  <navBar 
+    title-text="登录" 
+    goBack="1"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+  <view class='logo'>
+    <image style='width:220rpx;height:220rpx' src='/images/registerImg/logo.png'></image>
+  </view>
+  <view class='inp'>
+    <view class='login_tel'>
+      <image style='width:40rpx;height:40rpx;' src='/images/registerImg/login_tel.png'></image>
+      <input bindinput='phone' type='number' maxlength="11" placeholder='账户' placeholder-class='placeholder'></input>
+    </view>
+    <view class='login_message'>
+      <image style='width:40rpx;height:40rpx;' src='/images/registerImg/login_message.png'></image>
+      <input bindinput='verification' placeholder='验证码' placeholder-class='placeholder'></input>
+      <text bindtap='verificationCode' class='verificationCode'>{{time}}</text>
+    </view>
+    <button bindtap='login' class='login'>登　录</button>
+  </view>
+  <!-- 微信授权 -->
+  <view class='warp_bottom'>
+    <view class='line'>
+      <view class='line_left'></view><text class='character'>或</text><view class='line_right'></view>
+    </view>
+    <view class='wechat'>
+        <view class='wecaht_Img'>
+          <button class='btn' open-type="getPhoneNumber" bindgetphonenumber="bindgetphonenumber"> </button>
+          <image style='width:84rpx;height:84rpx' src='/images/registerImg/wechat.png'></image>
+        </view>
+      <view class='wechat_character'>
+        <text class='wechat_characterL'>登录即表示同意</text><text bindtap='wechatCharacterR' class='wechat_characterR'>《万小媒服务协议》</text>
+      </view>  
+    </view>
+  </view>  
+</view>
+<!-- 弹窗
+<button wx:if="{{isShow}}" class='getInfo' open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">需要获取微信头像和昵称</button>
+<view wx:if="{{isShow}}" class='fulbg'></view> -->
+<!-- 弹窗 -->
+<view wx:if="{{isShow}}" class='btn-box'>
+  <view class='btn-box-zi'>需要获取微信头像和昵称</view> 
+  <button class='btn-box-btn' open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">确认</button>
+</view>
+<view wx:if="{{isShow}}" class='fulbg'></view>
+    

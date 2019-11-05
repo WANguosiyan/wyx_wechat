@@ -1,0 +1,82 @@
+<view>
+  <navBar 
+    title-text="首页" 
+    goBack="1"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+  <!--轮播图-->
+  <swiper class='swiper-contarner' circular='true' indicator-dots='true' autoplay='true' interval='3000' duration='1500' indicator-color='#fff' indicator-active-color='#7580F3'>
+    <swiper-item wx:for="{{banner}}" wx:key="index" class='swiper-item'>
+      <image style='width:100%;height:360rpx' src='{{domain}}{{item.pic}}'></image>
+    </swiper-item>
+  </swiper>
+  <!--广告-->
+  <view class='information'>
+    <view class='information_top'>
+      <view bindtap='advertisement_putting' class='information_box'>
+        <image style='width:110rpx;height:110rpx' src='/images/index/home_ad.png'></image>
+        <view>广告投放</view>
+      </view>
+      <view bindtap='share' class='information_box information_middle'>
+        <image style='width:110rpx;height:110rpx' src='/images/index/home_extension.png'></image>
+        <view>推广赚钱</view>
+      </view>
+      <view bindtap='application' class='information_box'>
+        <image style='width:110rpx;height:110rpx' src='/images/index/home_cooperation.png'></image>
+        <view>申请加盟</view>
+      </view>
+    </view>
+    <view>
+      <view bindtap='video' class='information_box'>
+        <image style='width:110rpx;height:110rpx' src='/images/index/home_video.png'></image>
+        <view>视频制作</view>
+      </view>
+      <view bindtap='scene' class='information_box information_middle'>
+        <image style='width:110rpx;height:110rpx' src='/images/index/home_scene.png'></image>
+        <view>广告场景</view>
+      </view>
+      <view bindtap='cooperation' class='information_box'>
+        <image style='width:110rpx;height:110rpx' src='/images/index/home_merchant.png'></image>
+        <view>商家入驻</view>
+      </view>
+    </view>
+  </view>
+  <!-- 广告套餐 -->
+  <view class='SetMeal'>
+    <view class='SetMeal-nav'>
+      <view class='SetMeal-title'>快捷下单 广告套餐</view>
+      <view bindtap='translate' class='SetMeal-address'>
+        <view class='SetMeal-address-name'>{{address}}</view>
+        <image class='SetMeal-address-img' src='/images/index/location.png'></image>
+      </view>
+    </view>
+    <view class='SetMeal-box'>
+      <view bindtap='toSetMeal' data-repertory='{{item.repertory}}' data-comboid='{{item.id}}' wx:for="{{SetMealList}}" wx:key="index" class='SetMeal-item'>
+        <image class='SetMeal-item-img' src='{{domain}}{{item.pic}}'></image>
+        <view class='SetMeal-item-info'>
+          <view class='SetMeal-item-title'>{{item.title}}</view>
+          <view wx:if='{{item.tag}}' class='SetMeal-item-content'>{{item.tag}}</view>
+          <view class='SetMeal-money'>
+            <text>￥</text>
+            <text class='SetMeal-money-Actual'>{{item.price}}</text>
+            <text wx:if='{{item.old_price}}' class='SetMeal-money-Original'>￥{{item.old_price}}</text>
+          </view>
+        </view>
+        <view class='SetMeal-btn'>购买</view>
+      </view>
+    </view>
+  </view>
+  <!-- 选择地区 -->
+  <view bindtap='bg' wx:if="{{isBg}}" class='bg'></view>
+  <view class='choose' animation="{{animation}}" style="visibility:{{show ? 'visible':'hidden'}}">
+    <view class='choose-le'>
+      <view wx:for="{{cityleft}}" wx:key='' bindtap='getCity' data-parentid='{{item.id}}' data-name='{{item.region}}' data-cityindex='{{index}}' class="choose-le-item {{cityIndex==index?'choose-le-itembg':''}}">{{item.region}}</view>
+    </view>
+    <view class='choose-ri'>
+      <view wx:for="{{cityright}}" wx:key='' bindtap='getCombo' data-cityid='{{item.id}}' data-name='{{item.region}}' class='choose-ri-item'>{{item.region}}</view>
+    </view>
+  </view>
+  <tarBar number="0"/>
+</view>
+

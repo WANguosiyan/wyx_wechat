@@ -1,0 +1,11 @@
+.text{
+  border: 1rpx grey solid;
+  border-radius: 5rpx;
+  margin: auto;
+  margin-top: 100rpx;
+  margin-bottom: 50rpx;
+  font-size: 28rpx;
+}
+.placeholder{
+  color: #999;
+}

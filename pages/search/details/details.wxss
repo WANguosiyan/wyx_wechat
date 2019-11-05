@@ -1,0 +1,120 @@
+@import '/towxml/style/main.wxss';
+/**如果页面有动态主题切换，则需要将使用到的样式全部引入**/
+/**主题配色（浅色样式）**/
+@import '/towxml/style/theme/light.wxss';
+/**主题配色（深色样式）**/
+@import '/towxml/style/theme/dark.wxss';
+.swiper-contarner{
+  width: 100%;
+  height: 750rpx;
+}
+.name{
+  width: 100%;  
+  height: 100rpx;
+  font-size:32rpx;
+  font-weight:bold;
+  color:rgba(40,40,40,1);
+  padding-left: 32rpx;
+  line-height: 100rpx;
+}
+.bg{
+  width:100%;
+  height:20rpx;
+  background:rgba(243,243,243,1);
+}
+.info{
+  width: 100%;
+  height: 160rpx;
+  font-size: 24rpx;
+  color: #505050;
+}
+.details-type{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  vertical-align: top;
+}
+.img-box{
+  display: inline-block;
+  width:32rpx;
+  height:32rpx;
+  margin-left: 24rpx;
+  margin-right: 18rpx;
+}
+.img-box image{
+  margin: 0;
+  padding: 0;
+}
+.details_type image{
+  margin-right: 18rpx;
+}
+.detail_bottom{
+  width: 100%;
+  height: 142rpx;
+  position: fixed;
+  bottom: 0;
+}
+.detail_btn{
+  width:180rpx;
+  height:80rpx;
+  background:rgba(45,112,252,1);
+  box-shadow:0rpx 6rpx 6rpx 0rpx rgba(45,112,252,0.22);
+  border-radius:40rpx;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 80rpx;
+  position: fixed;
+  bottom: 15rpx;
+  left: 285rpx;
+}
+/* 类型框 */
+.fullbg3{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,1);
+  opacity:0;
+}
+.fullHidden3{
+  display: none;
+}
+.fullopacity3{
+  opacity: 0.4;
+}
+.typeBox{
+  width: 602rpx;
+  height: 202rpx;
+  background: #FFF;
+  border-radius: 10rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -300rpx;
+  margin-top: -200rpx;
+  z-index: 20;
+  font-size: 32rpx;
+  color: #282828;
+}
+.typeBoxS{
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 60rpx;
+}
+.typeBoxB-line1{
+  width: 600rpx;
+  height: 2rpx;
+  background: #999;
+}
+/* 详情 */
+.particulars{
+  color: #505050;
+  font-size: 24rpx;
+  margin-left: 24rpx;
+  margin-top: 19rpx;
+}
+.fuwenben image{
+  width: 100%;
+}

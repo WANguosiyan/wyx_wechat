@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Business_information":"/components/Business_information/Business_information",
+    "xialalan":"/components/xialalan/xialalan",
+    "kong": "/components/kong/kong"
+  }
+}

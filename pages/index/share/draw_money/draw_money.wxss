@@ -1,0 +1,61 @@
+.bg{
+  width: 100%;
+  height: 24rpx;
+  background: #EDEDED;
+}
+.line{
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1rpx solid #F1F1F1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.line text{
+  color: #4F4F4F;
+  font-size: 28rpx;
+  margin-left: 25rpx;
+}
+.line input{
+  width:500rpx;
+  color: #292929;
+  font-size: 28rpx;
+  position: absolute;
+  left: 189rpx;
+}
+.line view{
+  color: #292929;
+  font-size: 28rpx;
+  position: absolute;
+  left: 189rpx;
+}
+.line .inp_money{
+  color: #A0A0A0;
+  font-size: 28rpx;
+}
+.character{
+  color: #A0A0A0;
+  font-size: 28rpx;
+}
+.balance{
+  width: 100%;
+  height: 100rpx;
+  margin-left: 25rpx;
+  margin-bottom: 55rpx;
+  display: flex;
+  align-items: center;
+  color: #A1A1A1;
+  font-size: 24rpx;
+}
+.affirm{
+  width: 687rpx;
+  height: 86rpx;
+  background: #2D70FC;
+  box-shadow:0px 6px 6px 0px rgba(45,112,252,0.22);
+  border-radius: 43rpx;
+  text-align: center;
+  line-height: 86rpx;
+  font-size: 28rpx;
+  color: #fff;
+  margin: 0 auto;
+}

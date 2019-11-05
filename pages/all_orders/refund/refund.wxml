@@ -1,0 +1,24 @@
+<view>
+  <navBar 
+    title-text="申请退款" 
+    goBack="0"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+    <view class='box'>
+      <view>
+        <text>退款原因：</text>
+        <text class='kong'></text>
+        <textarea bindinput='text' class='border' placeholder='请输入退款原因'></textarea>
+      </view>
+      <view>
+        <text>退款联系人：</text>
+        <input bindinput='name' class='border' placeholder='请输入联系人姓名'></input>
+      </view>
+      <view>
+        <text>支付宝账号：</text>
+        <input bindinput='number' type='number' maxlength='11' class='border' placeholder='请输入支付宝账号'></input>
+      </view>
+    </view>
+    <view class='btn' bindtap='bindtap'>提交</view>
+</view>

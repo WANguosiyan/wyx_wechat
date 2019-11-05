@@ -1,0 +1,40 @@
+.box{
+  width: 600rpx;
+  height: 300rpx;
+  border: 2rpx gray dashed;
+  margin: auto;
+  margin-top: 30rpx;
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heng{
+  width: 20rpx;
+  height: 5rpx;
+  background: gray;
+}
+.shu{
+  width: 5rpx;
+  height: 40rpx;
+  background: gray;
+}
+.zi{
+  width: 600rpx;
+  margin: auto;
+  color: gray;
+  font-size: 24rpx;
+  line-height: 50rpx;
+}
+.show{
+  width: 600rpx;
+  height: 400rpx;
+  margin: auto;
+}
+.button{
+  width: 500rpx;
+  margin-top: 30rpx;
+}
+progress{
+  margin-top: 80rpx;
+}

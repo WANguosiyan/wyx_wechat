@@ -1,0 +1,144 @@
+page{
+  background: #F8F8F8;
+}
+.bg-box{
+  width: 100%;
+  height: 502rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wode{
+  position: absolute;
+  left: 33rpx;
+  color: #fff;
+}
+.touxiang{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 301rpx;
+  left: 32rpx;
+}
+.name{
+  font-size: 28rpx;
+  color: #F8F8F8;
+  font-weight:bold;
+  position: absolute;
+  top: 338rpx;
+  left: 155rpx;
+}
+.set{
+  width: 44rpx;
+  height: 44rpx;
+  position: absolute;
+  top: 336rpx;
+  right: 29rpx;
+}
+/* 我的订单 */
+.mine-order-box{
+  width: 688rpx;
+  height: 217rpx;
+  border-radius: 8rpx;
+  background: #FFFFFF;
+  position: absolute;
+  top: 433rpx;
+  left: 32rpx;
+  z-index: 10;
+  padding-top: 32rpx;
+  /* margin-bottom: 32rpx; */
+  box-shadow:0px 8px 14px 0px rgba(0, 0, 0, 0.06);
+}
+.mine-order-box-T{
+  height: 32rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 32rpx;
+}
+.mine-order{
+  font-size: 32rpx;
+  color: #272727;
+  margin-left: 20rpx;
+}
+.more-order{
+  font-size: 24rpx;
+  color: #9A9A9A;
+  position: absolute;
+  right: 52rpx;
+}
+.jiantou{
+  width: 15rpx;
+  height: 15rpx;
+  border-top:4rpx solid #969696;
+  border-right:4rpx solid #969696;
+  transform:rotate(45deg); 
+  position: absolute;
+  right: 26rpx;
+}
+/* 图标区 */
+.mine-order-box-B{
+  height: 154rpx;
+  font-size: 24rpx;
+  color: #515151;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.mine-order-img{
+  text-align: center;
+  position: relative;
+}
+.info-num{
+  width: 24rpx;
+  height: 24rpx;
+  background: #FF423D;
+  border-radius: 50%;
+  font-size: 14rpx;
+  color: #FFFFFF;
+  line-height: 24rpx;
+  text-align: center;
+  position: absolute;
+  top: -6rpx;
+  right: -6rpx;
+}
+.tuiguang{
+  width: 100%;
+  height: 146rpx;
+  margin-bottom: 31rpx;
+  position: absolute;
+  top: 714rpx;
+}
+/* 申请加盟区 */
+.mine-bottom{
+  width: 688rpx;
+  height: 300rpx;
+  background:#fff;
+  border-radius: 8rpx;
+  box-shadow:0px 8px 14px 0px rgba(0, 0, 0, 0.06);
+  font-size: 28rpx;
+  color: #272727;
+  position: absolute;
+  top: 891rpx;
+  left:32rpx;
+}
+.cooperation{
+  height: 98rpx;
+  border-top: 1rpx solid #F0F0F0;
+  border-bottom: 1rpx solid #F0F0F0;
+  display: flex;
+  align-items: center;
+}
+.cooperation image{
+  margin: 0 27rpx 0 20rpx;
+}
+.common{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.common image{
+  margin: 0 27rpx 0 20rpx;
+}

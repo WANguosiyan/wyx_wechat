@@ -1,0 +1,119 @@
+
+/* 输入区 */
+.line{
+  width: 100%;
+  height: 100rpx;
+  border-top: 1rpx solid #F1F1F1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.line text{
+  color: #505050;
+  font-size: 28rpx;
+  margin-left: 25rpx;
+}
+.line input{
+  color: #505050;
+  font-size: 28rpx;
+  position: absolute;
+  left: 189rpx;
+}
+.character{
+  color: #969696;
+  font-size: 28rpx;
+}
+/* 经营行业 */
+.choose{
+  color: #969696;
+  font-size: 28rpx;
+  position: absolute;
+  left: 189rpx;
+}
+/* 地区 */
+.adress{
+  color: #505050;
+  font-size: 28rpx;
+}
+/* 店铺介绍 */
+.Shop_introduction_box{
+  height: 186rpx;
+}
+.Shop_introduction_box text{
+  position: absolute;
+  top: 36rpx;
+
+}
+.Shop_introduction{
+  width: 550rpx;
+  height: 150rpx;
+  color: #505050;
+  font-size: 28rpx;
+  position: absolute;
+  top: 36rpx;
+  left: 189rpx;
+}
+/* 上传 */
+.shangchuan{
+  width: 100%;
+  display: flex;
+}
+.uploading{
+  font-size: 24rpx;
+  color: #A5A5A5;
+}
+.shangchuan text{
+  color: #505050;
+  font-size: 28rpx;
+  margin-left: 25rpx;
+  margin-right: 51rpx;
+}
+.item_box{
+  width: 560rpx;
+  display: flex;
+  flex-wrap:wrap;
+  margin-bottom: 166rpx;
+}
+.chooseImage{
+  width: 162rpx;
+  height: 162rpx;
+  background: #F3F5F8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.uploader__img{
+  position: relative;
+  width: 162rpx;
+  height: 162rpx;
+  overflow: hidden;
+  margin-right: 21rpx;
+  margin-bottom: 21rpx;
+}
+.uploader_deal{
+  width: 50rpx;
+  height: 50rpx;
+  background:rgba(0,0,0,1);
+  opacity:0.3;
+  border-radius:1rpx;
+  color:#FFF;
+  font-size: 30rpx;
+  text-align: center;
+  position: absolute;
+  right: 0;
+}
+/* 提交申请 */
+.submit{
+  width: 100%;
+  height: 92rpx;
+  background: #2D70FC;
+  line-height: 92rpx;
+  text-align: center;
+  color: #FEFEFE;
+  font-size: 28rpx;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+}
+

@@ -1,0 +1,11 @@
+<view style='height:{{status + navHeight}}px' class='box'>
+  <view class='nav' style='height: {{status + navHeight}}px'>
+    <view class='status' style='height: {{status}}px;{{containerStyle}}'></view>
+    <view class='navbar' style='height:{{navHeight}}px;{{containerStyle}}'>
+        <view class='back-icon' bindtap='back'>
+            <view style='color:{{color}}' class="{{goBack==0?'back-icon-a':'back-icon-b'}}"></view>
+            <view class='nav-title' style='{{textStyle}}'>{{titleText}}</view>
+        </view>
+    </view>
+  </view>
+</view>

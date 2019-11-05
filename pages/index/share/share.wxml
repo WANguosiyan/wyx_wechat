@@ -1,0 +1,64 @@
+<view>
+  <navBar 
+    title-text="分销" 
+    goBack="0"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+  <!-- 分享图片 -->
+  <view class='share_box'>
+    <image style='width:100%;height:279rpx;' src='/images/index/share_bg.png'></image>
+    <view bindtap='guize' class='share_rule'>规则</view>
+  </view>
+  <!-- 头像 -->
+  <view class='share_headImg'>
+    <image wx:if='{{headimg}}' style='width:198rpx;height:198rpx;' src='{{domain}}{{headimg}}'></image>
+    <image wx:if='{{!headimg && !avatar}}' style='width:198rpx;height:198rpx;' src='/images/mine/timg.jpg'></image>
+    <image wx:else style='width:198rpx;height:198rpx;' src='{{avatar}}'></image>
+  </view>
+  <view class='share_character'>
+    <text>每邀请一位好友成功下单可返现下单金额的{{percent}}%</text>
+  </view>
+  <!-- 分享按钮 -->
+  <button open-type="share" class='share_btn'>点我分享给小伙伴们</button>
+  <!-- 可用收益 -->
+  <view class='earnings_box'>
+    <view class='earnings_boxT'>
+      <view class='earnings_line'></view>
+      <view class='earnings_character'>可用收益</view>
+      <view bindtap='Returns_detailed' class='earnings_arrows'></view>
+    </view>
+    <view class='earnings_usableM'><text>{{useful_profit}}</text>元</view>
+    <view class='earnings_accumulativeM'>累计收益{{all_profit}}</view>
+    <view bindtap='toalipay' class='withdraw_deposit'>提现</view>
+  </view>
+  <!-- 我的邀请 -->
+  <view class='earnings_box'>
+    <view class='earnings_boxT invite_boxT'>
+      <view class='earnings_line'></view>
+      <view class='earnings_character'>我的邀请</view>
+      <view bindtap='invite' class='earnings_arrows'></view>
+    </view>
+    <view class='invite'>
+      <view class='invite_people invite_consumption'>
+        <text class='invite_money'>{{invite_all_cost}}</text><text>元</text>
+        <view>好友消费</view>
+      </view>
+      <view class='invite_line'></view>
+      <view class='invite_people'>
+        <text class='invite_money'>{{member_count}}</text><text>人</text>
+        <view>成功邀请</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 规则框 -->
+<view wx:if="{{isShow}}" class='rule'>
+  <view class='rule-title'>活动规则</view>
+  <view class='rule-item'>1.您邀请的好友需要通过您的专属分享链接来注册我们的账号;</view>
+  <view class='rule-item'>2.您邀请的好友通过在我们的网站购买的每一笔订单在成功完成后，您的账户都会有相应比例的收益，不设上限;</view>
+  <view class='rule-item'>3.收益好的钱我们可以通过提现功能来提取到您的支付宝账户;</view>
+  <view class='rule-item'>4.本活动最终解释权归本公司所有</view>
+</view>
+<!-- 遮罩层 -->
+<view wx:if="{{isShow}}" bindtap='fullbg' class='fullbg'></view>

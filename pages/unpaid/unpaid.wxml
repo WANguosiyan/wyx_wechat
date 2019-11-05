@@ -1,0 +1,146 @@
+<view>
+  <navBar 
+    title-text="提交订单"
+    goBack="0"
+    color="#000000"
+    background="#fff"
+    bindback="back"/>
+    <view class='pay-time' style='top:{{height}}px'>
+      <view wx:if="{{status==0}}" class='unpaid'>待支付</view>
+      <view wx:if="{{status==0}}">请在15分钟内完成支付</view>
+      <view wx:if="{{status==1}}" class='unpaid'>未上传</view>
+      <view wx:if="{{status==1}}">广告未上传</view>
+      <view wx:if="{{status==2}}" class='unpaid'>待审核</view>
+      <view wx:if="{{status==2}}">订单待审核</view>
+      <view wx:if="{{status==3}}" class='unpaid'>未通过</view>
+      <view wx:if="{{status==3}}">订单未通过</view>
+      <view wx:if="{{status==4}}" class='unpaid'>已通过</view>
+      <view wx:if="{{status==4}}">订单已通过</view>
+      <view wx:if="{{status==5}}" class='unpaid'>已完成</view>
+      <view wx:if="{{status==5}}">订单已完成</view>
+      <view wx:if="{{status==6}}" class='unpaid'>已取消</view>
+      <view wx:if="{{status==6}}">订单已取消</view>
+    </view>
+    <view class='kong'></view>
+ <view>
+      <view class='order-info'>订单信息</view>
+      <view wx:for="{{equipment}}" wx:key="index" class='order-item'><Business_information name="{{item.name}}" address="{{item.address}}" type_name="{{item.type_name}}" img="{{item.image}}"/></view>
+    </view>
+    <view class='bg'></view>
+    <!-- 广告播放相关信息 -->
+    <view>
+      <view class='play-time'>
+        <view>广告播放时间</view>
+      </view>
+    </view>
+    <!-- 广告时长 -->
+    <view class='advertising-public'>
+      <view class='advertising-public-L'>广告时长</view>
+      <view class='advertising-public-R'>{{play_long}}</view>
+    </view>
+    <!-- 播放次数 -->
+    <view class='advertising-public'>
+      <view class='advertising-public-L'>每个时间段重复次数</view>
+      <view class='advertising-public-R'>{{play_num}}次</view>
+    </view>
+    <!-- 选择播放时段 -->
+    <view class='advertising-publicSD'>
+      <view class='advertising-public-L'>选择播放时段</view>
+      <view class='advertising-public-R1'>
+        <view wx:for="{{time_hour}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+    </view>
+    <!-- 选择播放日期 -->
+    <view class='date'>
+      <view class='date-L'>选择播放日期</view>
+      <view class='date-R'>共{{date_num}}天</view>
+    </view>
+    <!-- 具体日期 -->
+    <view wx:for="{{time_date}}" wx:for-index="key" wx:for-item="value" wx:key="{{index}}" class='concrete-time'>
+      <view class='years'>
+        <text>{{key}}</text>
+      </view>
+      <view class='day'>
+        <text wx:for="{{value}}" wx:key="index">{{item}}日</text>
+      </view>
+    </view>
+    <!-- 合计 -->
+    <view class='advertising-public time'>
+      <view class='advertising-public-R'>合计 : {{time_total}}</view>
+    </view>
+    <view class='bg'></view>
+    <!-- 订单信息 -->
+    <view class='pay-info'>
+      <view class='pay-box'>
+        <view class='OrderInfo'>订单信息</view>
+      </view>
+      <!-- 订单号 -->
+      <view class='pay-box'>
+        <view class='pay-boxL'>订单号</view>
+        <view class='pay-boxR'>{{order_number}}</view>
+      </view>
+      <!-- 电子合同 -->
+      <view bindtap='toEC' class='pay-box'>
+        <view class='pay-boxL'>电子合同</view>
+        <view class='pay-boxR'>查看</view>
+      </view>
+      <!-- 广告类型 -->
+      <view class='pay-box'>
+        <view class='pay-boxL'>广告类型</view>
+        <view class='pay-boxR'>{{type}}</view>
+      </view>
+      <!-- 支付方式 -->
+      <view class='pay-box'>
+        <view class='pay-boxL'>支付方式</view>
+        <view class='pay-boxR'>{{pay_way}}</view>
+      </view>
+      <!-- 下单时间 -->
+      <view class='pay-box'>
+        <view class='pay-boxL'>下单时间</view>
+        <view class='pay-boxR'>{{create_time}}</view>
+      </view>
+      <!-- 合计 -->
+      <view class='total'>
+        <view class='totalR'>合计:<text class='fuhao'>￥</text><text class='money'>{{all_money}}</text></view>
+      </view>
+    </view>
+    <view class='bg'></view>
+    <!-- 上传广告 -->
+    <view class='pay-info'>
+      <view class='pay-box'>
+        <view class='OrderInfo'>上传广告</view>
+      </view>
+      <!-- 订单号 -->
+      <view class='pay-box'>
+        <view class='pay-boxL'>类型</view>
+        <view class='pay-boxR'>{{type}}</view>
+      </view>
+      <!-- 电子合同 -->
+      <view class='pay-box flies'>
+        <view class='pay-boxL'>上传文件</view>
+        <view wx:if="{{fileType}}" class='pay-boxR'>{{fileType}}</view>
+        <view wx:else class='pay-boxR'>未上传</view>
+      </view>
+    </view>
+    <view class='bg'></view>
+    <!-- 预览图片/视屏 -->
+    <view wx:if="{{status==2}}" class='preview'>
+      <image wx:if="{{fileType == '图片'}}" style='width:600rpx;height:400rpx;' src='{{domain}}{{img}}'></image>
+      <video wx:else src="{{domain}}{{img}}"></video>
+    </view>
+    <view class='empty'></view>
+    <view class='pay-now'>
+      <view wx:if="{{status==0}}" bindtap='topay' data-item='{{item}}' class='pay-nowR'>立即支付</view>
+      <view wx:if="{{status==0}}" bindtap='cancal' class='pay-nowL'>取消订单</view>
+      <view wx:if="{{status==1}}" bindtap='toload' class='pay-nowR'>上传广告</view>
+      <view wx:if="{{status==1}}" bindtap='refund' class='pay-nowL'>申请退款</view>
+      <view wx:if="{{status==2 && format_pay_back=='申请退款中'}}" class='pay-nowR'>退款中</view>
+      <view wx:if="{{status==2 && format_pay_back!='申请退款中'}}" bindtap='refund' class='pay-nowR'>申请退款</view>
+      <view wx:if="{{status==3}}" bindtap='toload' class='pay-nowL'>重新上传</view>
+      <view wx:if="{{status==3}}" bindtap='refund' class='pay-nowR'>申请退款</view>
+      <view wx:if="{{status==4}}" bindtap='toaffirm' class='pay-nowR'>确认完成</view>
+      <view wx:if="{{status==4}}" bindtap='refund' class='pay-nowL'>申请退款</view>
+      <view wx:if="{{status==5}}" bindtap='del' class='pay-nowR'>删除订单</view>
+      <view wx:if="{{status==6}}" bindtap='del' class='pay-nowR'>删除订单</view>
+    </view> 
+</view>

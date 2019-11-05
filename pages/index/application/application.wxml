@@ -1,0 +1,70 @@
+<view>
+  <navBar 
+    title-text="申请入驻" 
+    goBack="0"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+  <view>
+    <!-- 店铺名称 -->
+    <view class='line'>
+      <text>店铺名称</text>
+      <input bindinput='getShopName' name="shop_name" placeholder='请填写店铺名称' placeholder-class='character'></input>
+    </view>
+    <!-- 经营行业 -->
+    <view class='line'>
+      <text>经营行业</text>
+      <input bindinput='getIndustry' name="shop_name" placeholder='请填写' placeholder-class='character'></input>
+    </view>
+    <!-- 联系人 -->
+    <view class='line'>
+      <text>联系人</text>
+      <input bindinput='getName' name="user_name" placeholder='请输入姓名' placeholder-class='character'></input>
+    </view>
+    <!-- 联系电话 -->
+    <view class='line'>
+      <text>联系电话</text>
+      <input bindinput='getTel' type='number' maxlength='11' name="phone" placeholder='联系人电话' placeholder-class='character'></input>
+    </view>
+    <!-- 微信号 -->
+    <view class='line'>
+      <text>微信号</text>
+      <input bindinput='getWx' name="equipment_num" placeholder='请填写微信号 ' placeholder-class='character'></input>
+    </view>
+    <!-- 地区 -->
+    <view class='line'>
+      <text>地区</text>
+      <picker 
+        class='choose'
+        mode="region"
+        bindchange="bindRegionChange"
+        value="{{region}}"
+        custom-item="{{customItem}}"><view wx:if="{{IsShow}}">请选择省/市/区</view><view wx:else class='adress'>{{region[0]}}/{{region[1]}}/{{region[2]}}</view></picker>
+    </view>
+    <!-- 详细地址 -->
+    <view class='line'>
+      <text>详细地址</text>
+      <input bindinput='getAddress' name="address" placeholder='街道门牌、房间号等信息' placeholder-class='character'></input>
+    </view>
+    <!-- 店铺介绍 -->
+    <view class='line Shop_introduction_box'>
+      <text>店铺介绍</text>
+      <textarea bindinput='getIntroduce' class='Shop_introduction' placeholder='商户简单介绍' placeholder-class='character'></textarea>
+    </view>
+    <!-- 店铺图片 -->
+    <view class='shangchuan'>
+      <text>店铺图片</text>
+      <view class='item_box'>       
+        <view class="uploader__img" wx:for="{{files}}" wx:key="*this">
+          <view bindtap='uploader_deal' data-imgIndex='{{index}}' class='uploader_deal'>x</view>
+          <image style='width: 162rpx;height: 162rpx;' src="{{item}}" mode="aspectFill" />
+        </view>
+        <view bindtap='chooseImage' class='chooseImage'>
+          <image style='width:54rpx;height:54rpx;' src='/images/application/picture.png'></image>
+          <view class='uploading'>上传图片</view>
+        </view>
+      </view>
+    </view>
+    <view bindtap='submit' class='submit'>提交申请</view>
+  </view>
+</view>

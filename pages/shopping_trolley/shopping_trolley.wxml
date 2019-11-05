@@ -1,0 +1,46 @@
+<view>
+  <navBar 
+    title-text="购物车" 
+    goBack="0"
+    color="#fff"
+    delID="{{delID}}"
+    background="#2D70FC"
+    bindback="back"/>
+  <view class="item {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{lists}}" wx:key="{{index}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+    <view class="content">
+      <view class='interval'></view>
+      <icon size='30' wx:if="{{item.selected}}" type="success" color="#2D70FC" bindtap="selectList" data-index="{{index}}" />
+      <icon size='30' wx:else type="circle" bindtap="selectList" data-index="{{index}}"/>
+      <view bindtap='todetail' data-item='{{item}}'>
+        <view class='information'>
+          <image style='width:166rpx;height:166rpx;' class='informationImg' src='{{domain}}{{item.image}}'></image>
+        </view>
+        <view class='information'>
+          <view class='name'>{{item.name}}</view>
+          <view class='other site'>地址：{{item.address}}</view>
+          <view class='other'>类型：{{item.type_name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+  </view>
+  <view class='kongbg'></view>
+  <view class='tarbar'>
+      <view class='interval'></view>
+      <icon size='30' wx:if="{{selectAllStatus}}" type="success" color="#2D70FC" bindtap="selectAll"/>
+      <icon size='30' wx:else type="circle" bindtap="selectAll"/>
+      <view class='allcheck'>全选</view>
+      <view class='number'>已选:{{totalnum}}个广告机</view>
+      <view bindtap='next' class='next'>下一步</view>
+  </view>
+</view>
+<!-- 类型框 -->
+<!-- 遮罩层 -->
+<view class="fullbg3 {{isfull3 ?'fullopacity3':'fullHidden3'}}" bindtap="typeBoxQX"></view>
+<view wx:if="{{istypeBox}}" class='typeBox'>
+  <view class='typeBoxS' bindtap='typeBoxSP' data-SP='0'>视频/图片广告</view>
+  <view class='typeBoxB-line1'></view>
+  <view class='typeBoxS' bindtap='typeBoxWZ' data-WZ='1'>文字广告</view>
+</view>
+<!-- 显示什么都没有时显示图片 -->
+<kong wx:if="{{lists.length == 0}}" zi="暂无商品，请添加"/>

@@ -1,0 +1,18 @@
+<view>
+  <navBar 
+    title-text="消息通知" 
+    goBack="0"
+    color="#000"
+    background="#fff"
+    bindback="back"/>
+    <view class='wrap' wx:for="{{list}}" wx:key="index">
+      <view class='time'><text>{{item.time}}</text></view>
+      <view class='box'>
+        <image style='width:92rpx;height:92rpx;' src='/images/map/news_head.png'></image>
+        <view class='zi'>{{item.content}}<view class='san'></view></view>
+      </view>
+    </view>
+    <view class='kong'></view>
+</view>
+<!-- 显示什么都没有时显示图片 -->
+<kong wx:if="{{list.length == 0}}" zi="暂无消息通知"/>

@@ -1,0 +1,369 @@
+page{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.warp{
+  width: 100%;
+  height: 100%;
+}
+.DJ{
+  width: 100%;
+  height: 100%;
+}
+/* 下拉菜单 */
+.nav {
+  width: 750rpx;
+  display: flex;
+  border-top: 1px solid #d1d3d4;
+  border-bottom: 1px solid #d1d3d4;
+  background: #fff;
+  font-size: 24rpx;
+  color: #282828;
+  position: absolute;
+  top: 0;
+  z-index: 30;
+}
+.kong{
+  width: 750rpx;
+  height: 80rpx;
+}
+.nav-son {
+  display: flex;
+  flex: 1;
+  text-align: center;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  position: relative;
+  z-index: 20;
+}
+
+.borders {
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+}
+.icon {
+  display: inline-block;
+  border: 4px solid transparent;
+  border-bottom: 4px solid #CCCCCC;
+  margin-left: 5px;
+}
+.temp {
+  position: absolute;
+  z-index: 10;
+  font-size: 14px;
+}
+
+.temp1 {
+  width: 750rpx;
+  overflow-y: scroll;
+  background: #fff;
+  color: #666;
+}
+.temp1_son{
+  width: 750rpx;
+  height: 83rpx;
+  background: #fff;
+  line-height: 110rpx;
+  font-size: 28rpx;
+  color: #505050;
+}
+.temp1_son cover-view{
+  display: inline-block;
+  margin-left: 62rpx;
+}
+.quyu {
+  position: absolute;
+  display: none;
+  height: 772rpx;
+  z-index: 10;
+}
+.query-item{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 62rpx;
+}
+.quyu .qy {
+  overflow-y: scroll;
+  float: left;
+  width: 375rpx;
+  height: 772rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #505050;
+}
+
+.qy cover-view {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-left: 15rpx;
+}
+.quyu-left {
+  background: #fff;
+}
+
+.quyu-center {
+  background: #D5D5D5;
+}
+.current {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 62rpx;
+  background: #F2F2F2;
+}
+.current2 {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 62rpx;
+  background: #F2F2F2;
+}
+.current3{
+  height: 83rpx;
+  line-height: 110rpx;
+  background: #F2F2F2;
+}
+@keyframes slidown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.slidown {
+  display: block;
+  animation: slidown 0.2s ease-in both;
+}
+
+@keyframes slidup {
+  from {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+.slidup {
+  display: block;
+  animation: slidup 0.2s ease-in both;
+}
+.disappear {
+  display: none;
+}
+.fullbg {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,1);
+  opacity:0;
+}
+.fullHidden{
+  display: none;
+}
+.fullopacity {
+  opacity: 0.4;
+}
+.fullbg2{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,1);
+  opacity:0;
+}
+.fullHidden2{
+  display: none;
+}
+.fullopacity2{
+  opacity: 0.4;
+}
+.nav-son.active .icon {
+  border-top: 4px solid #CCCCCC;
+  border-bottom: 0;
+}
+/* 地图 */
+.ditu{
+  width: 100%;
+  position: relative;
+}
+.query{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  background:#fff;
+  box-shadow:0rpx 8rpx 10rpx 0rpx rgba(0, 0, 0, 0.12);
+  opacity:0.9;
+  border-radius:6rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.queryL{
+  left: 16rpx;
+}
+.queryR{
+  right: 20rpx;
+}
+.query_location{
+  bottom:221rpx;
+}
+.query_news{
+  bottom:121rpx;
+}
+.query_problem{
+  bottom:22rpx;
+}
+.query_shop{
+  bottom:121rpx;
+}
+.query_search{
+  bottom:22rpx;
+}
+.query_shop_box{
+  width:60rpx;
+  height:60rpx;
+  position: relative;
+}
+.query_shop_num{
+  width:24rpx;
+  height:24rpx;
+  background:rgba(255,66,61,1);
+  border-radius:50%;
+  color: #fff;
+  font-size: 14rpx;
+  text-align: center;
+  line-height: 24rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.map-info{
+  width:570rpx;
+  height:298rpx;
+  padding-left: 20rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 20rpx 30rpx 0rpx rgba(0, 0, 0, 0.14);
+  font-size:28rpx;
+  color:rgba(41,41,41,1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -350rpx;
+  margin-left: -290rpx;
+  border-radius: 10rpx;
+}
+.sanjiao{
+  width: 20rpx;
+  height: 20rpx;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -70rpx;
+  margin-left: -12rpx;
+  transform:rotate(45deg);
+}
+.del{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  top:0rpx;
+  right: 0rpx;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  z-index: 10;
+}
+.del-x{
+  margin-top: 20rpx;
+}
+.shop-name{
+  height: 70rpx;
+  line-height:70rpx;
+}
+.shop-imgBox{
+  width: 190rpx;
+  height: 190rpx;
+  border-radius:6rpx;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 21rpx;
+  vertical-align: top;
+}
+.weizhi{
+  display: flex;
+  margin-bottom: 35rpx;
+}
+.weizhiR{
+  width: 250rpx;
+  text-overflow: ellipsis;
+}
+.shop-infoBox{
+  width: 100%;
+  height: 190rpx;
+  display: inline-block;
+  font-size: 24rpx;
+  position: relative;
+  vertical-align: top;
+}
+.shop-btn{
+  margin-top: 30rpx;
+  position: relative;
+  z-index: 8;
+}
+.shop-btnL{
+  display: inline-block;
+  width:159rpx;
+  height:66rpx;
+  background:rgba(46,115,255,1);
+  box-shadow:0rpx 6rpx 6rpx 0rpx rgba(45,112,252,0.22);
+  border-radius:33rpx;
+  line-height: 66rpx;
+  text-align: center;
+  color: #FFFFFF;
+  margin-right: 10rpx;
+}
+.shop-btnR{
+  display: inline-block;
+  width:159rpx;
+  height:66rpx;
+  background:rgba(254,70,17,1);
+  box-shadow:0rpx 6rpx 6rpx 0rpx rgba(45,112,252,0.22);
+  border-radius:33rpx;
+  line-height: 66rpx;
+  text-align: center;
+  color: #FFFFFF;
+}
+.sa{
+  width: 50rpx;
+  height: 50rpx;
+  background: red;
+  border-radius: 50%;
+}
+/* 批量购买 */
+.bulk_buying{
+  width: 180rpx;
+  height: 80rpx;
+  background:rgba(45,112,252,1);
+  box-shadow:0px 6px 6px 0px rgba(45,112,252,0.22);
+  border-radius:40rpx;
+  position: absolute;
+  bottom: 22rpx;
+  left: 280rpx;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bulk_buying image{
+  margin-right: 10rpx;
+}

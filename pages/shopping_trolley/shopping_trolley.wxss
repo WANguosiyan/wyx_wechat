@@ -1,0 +1,133 @@
+.item{
+  overflow: hidden;
+}
+.kongbg{
+  height: 150rpx;
+}
+.information{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 25rpx;
+}
+.informationImg{
+  width:166rpx;
+  height:166rpx;
+  border-radius: 6rpx;
+  margin-left: 33rpx;
+}
+.interval{
+  margin-left: 33rpx;
+}
+.name{
+  color: #282828;
+  font-size: 28rpx;
+}
+.other{
+  color: #646464;
+  font-size: 24rpx;
+}
+.site{
+  margin: 26rpx 0 24rpx 0;
+}
+.del {
+    background-color: #b4282d;
+    width: 136rpx;
+    height: 230rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-transform: translateX(136rpx);
+    transform: translateX(136rpx);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  .content {
+    float: left;
+    width: 100%;
+    height: 230rpx;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    -webkit-transform: translateX(136rpx);
+    transform: translateX(136rpx);
+    margin-left: -136rpx;
+    display: flex;
+    align-items: center;
+  }
+.touch-move-active .content,
+.touch-move-active .del {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+.tarbar{
+  width: 100%;
+  height: 110rpx;
+  position: fixed;
+  bottom: 0;
+  background: #F4F4F4;
+  display: flex;
+  align-items: center;
+}
+.allcheck{
+  color: #BFBFBF;
+  font-size: 24rpx;
+  margin: 0 34rpx 0 13rpx;
+}
+.number{
+  font-size: 28rpx;
+  color: #282828;
+}
+.next{
+  width: 180rpx;
+  height: 80rpx;
+  color: #FFFFFF;
+  font-size: 24rpx;
+  background: #2D70FC;
+  border-radius: 40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  position: fixed;
+  bottom:14rpx;
+  right: 31rpx;
+}
+/* 类型框 */
+.fullbg3{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,1);
+  opacity:0;
+}
+.fullHidden3{
+  display: none;
+}
+.fullopacity3{
+  opacity: 0.4;
+}
+.typeBox{
+  width: 602rpx;
+  height: 202rpx;
+  background: #FFF;
+  border-radius: 10rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -300rpx;
+  margin-top: -200rpx;
+  z-index: 20;
+  font-size: 32rpx;
+  color: #282828;
+}
+.typeBoxS{
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 60rpx;
+}
+.typeBoxB-line1{
+  width: 600rpx;
+  height: 2rpx;
+  background: #999;
+}
+

@@ -1,0 +1,66 @@
+<view>
+  <navBar 
+    title-text="提交订单" 
+    goBack="0"
+    color="#000000"
+    background="#fff"
+    delID1="{{delID1}}"
+    delta="2"
+    bindback="back"/>
+    <view class='bg'></view>
+    <!-- 订单信息 -->
+    <view>
+      <view class='order-info'>订单信息</view>
+      <view wx:for="{{equipment}}" wx:key="index" class='order-item'><Business_information name="{{item.name}}" address="{{item.address}}" type_name="{{item.type_name}}" img="{{item.image}}"/></view>
+    </view>
+    <view class='bg'></view>
+    <!-- 广告播放相关信息 -->
+    <view>
+      <view class='play-time'>
+        <view>广告播放时间</view>
+      </view>
+    </view>
+    <!-- 广告时长 -->
+    <view class='advertising-public'>
+      <view class='advertising-public-L'>广告时长</view>
+      <view class='advertising-public-R'>{{play_long}}</view>
+    </view>
+    <!-- 播放次数 -->
+    <view class='advertising-public'>
+      <view class='advertising-public-L'>每个时间段重复次数</view>
+      <view class='advertising-public-R'>{{play_num}}次</view>
+    </view>
+    <!-- 选择播放时段 -->
+    <view class='advertising-publicSD'>
+      <view class='advertising-public-L'>选择播放时段</view>
+      <view class='advertising-public-R1'>
+        <view wx:for="{{time_hour}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+    </view>
+    <!-- 选择播放日期 -->
+    <view class='date'>
+      <view class='date-L'>选择播放日期</view>
+      <view class='date-R'>共{{date_num}}天</view>
+    </view>
+    <!-- 具体日期 -->
+    <view wx:for="{{time_date}}" wx:for-index="key" wx:for-item="value" wx:key="{{index}}" class='concrete-time'>
+      <view class='years'>
+        <text>{{key}}</text>
+      </view>
+      <view class='day'>
+        <text wx:for="{{value}}" wx:key="index">{{item}}日</text>
+      </view>
+    </view>
+    <!-- 合计 -->
+    <view class='advertising-public time'>
+      <view class='advertising-public-R'>合计 : {{time_total}}</view>
+    </view>
+    <!-- 总价 -->
+    <view class='total-prices'>
+      <view class='total-prices-L'>
+        <text>￥</text>
+        <text class='total-money'>{{all_money}}</text>
+      </view>
+      <view class='total-prices-R' bindtap='payment'>去支付</view>
+    </view>
+</view>

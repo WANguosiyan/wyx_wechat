@@ -1,0 +1,36 @@
+.box{
+  width: 100%;
+}
+.nav{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+}
+.navbar{
+    position: relative
+}
+.back-icon{
+    position: absolute;
+    top: 8px; 
+    left: 6px;
+    margin-left: 15px;
+    width: 400rpx;
+}
+.back-icon-a{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    transform:rotate(45deg);
+    margin-right: 15px;
+    vertical-align: middle;
+}
+.back-icon-b{
+  display: none;
+}
+.nav-title{
+    display: inline-block;
+    font-weight:bold;
+}

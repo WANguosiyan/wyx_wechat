@@ -1,0 +1,137 @@
+.bg{
+ width: 100%;
+ height: 18rpx;
+ background: #F4F4F4; 
+}
+.order-info{
+  font-size: 24rpx;
+  color: #000000;
+  margin: 26rpx 0 56rpx 32rpx;
+}
+.order-item{
+  margin-left: 32rpx;
+  margin-bottom: 32rpx;
+}
+/* 广告播放相关信息 */
+.play-time{
+  height: 71rpx;
+  line-height: 71rpx;
+  font-size: 24rpx;
+  color: #000000;
+  border-bottom: 1rpx solid #F4F4F4;
+}
+.play-time view{
+  margin-left: 32rpx;
+}
+.advertising-public{
+  width: 702rpx;
+  height: 99rpx;
+  border-bottom: 1rpx solid #F4F4F4;
+  margin-left: 32rpx;
+  font-size: 28rpx;
+  color: #272727;
+  line-height: 99rpx;
+}
+.advertising-publicSD{
+  width: 702rpx;
+  border-bottom: 1rpx solid #F4F4F4;
+  margin-left: 32rpx;
+  font-size: 28rpx;
+  color: #272727;
+  display: inline-block;
+  line-height: 99rpx;
+}
+.time{
+  margin-bottom: 88rpx;
+}
+.advertising-public-L{
+  float: left;
+}
+.advertising-public-R{
+  float: right;
+  margin-right: 16rpx;
+}
+.advertising-public-R1{
+  width: 530rpx;
+  display: inline-block;
+}
+.advertising-public-R1 view{
+  display: inline-block;
+  margin-left: 16rpx;
+}
+.time-frame{
+  display: flex;
+}
+.time-frame view{
+  margin-left: 38rpx;
+}
+.date{
+  width: 702rpx;
+  height: 97rpx;
+  margin-left: 32rpx;
+  font-size: 28rpx;
+  color: #272727;
+}
+.date-L{
+  float: left;
+  margin: 36rpx 0 34rpx 0;
+}
+.date-R{
+  float: right;
+  margin-right: 16rpx;
+  margin: 36rpx 0 34rpx 0;
+}
+.concrete-time{
+  width: 702rpx;
+  margin-left: 34rpx;
+  margin-bottom: 16rpx;
+  font-size: 24rpx;
+  color: #282828;
+  display: flex;
+}
+.years{
+  width: 110rpx;
+  margin-right: 30rpx;
+}
+.day{
+   width: 600rpx;
+  color: #515151;
+}
+.day text{
+  display: inline-block;
+  margin-right: 28rpx;
+  line-height: 20rpx;
+}
+.total-prices{
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+}
+.total-prices-L{
+  width: 50%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #515151;
+  background: #fff;
+}
+.total-money{
+  font-size: 36rpx;
+  color: #292929;
+}
+.total-prices-R{
+  width: 50%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #FFFFFF;
+  background: #276FFF;
+  border-radius: 0;
+}
+
+

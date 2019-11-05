@@ -1,0 +1,11 @@
+<view>
+  <navBar 
+    title-text="上传文件" 
+    goBack="0"
+    color="#fff"
+    background="#2D70FC"
+    bindback="back"/>
+    <!-- 文本区 -->
+    <textarea bindinput='bindinput' class='text' placeholder='请输入上传的文字内容' placeholder-class='placeholder'></textarea>
+    <button bindtap='affirm'>确认</button>
+</view>

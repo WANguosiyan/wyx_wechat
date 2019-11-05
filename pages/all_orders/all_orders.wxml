@@ -1,0 +1,85 @@
+<view>
+  <navBar 
+    title-text="全部订单" 
+    goBack="0"
+    color="#fff"
+    tomine="true"
+    background="#2D70FC"
+    bindback="back"/>
+    <!-- 顶部滚动区 -->
+    <scroll-view class="box" scroll-x="true">
+      <view wx:for="{{navList}}" data-currentTab="{{index}}"  class="box-item {{currentTab==index?'on':''}}" wx:key="{{index}}" bindtap="xuanzhong">{{item}}</view>
+    </scroll-view>
+    <swiper current="{{currentTab}}" class="swiper-box" style="height:{{itemList.length == undefined?1000:550*itemList.length}}rpx" duration="300" bindchange="bindChange">
+        <swiper-item wx:for="{{navList}}" wx:key="{{index}}">
+          <!-- 订单信息 -->
+          <view wx:key="{{index}}" wx:for="{{itemList}}">
+            <view data-item='{{item}}' bindtap='tounpaid' class='dingdan-box'>
+              <view class='bg'></view>
+              <view class='dingdan-info'>
+                <view class='dingdan-info-L'>{{item.create_time}}</view>
+                <view class='dingdan-info-R'>{{item.format_status}}</view>
+              </view>
+              <!-- 店家信息 -->
+              <view wx:if="{{!item.info.length}}" class='dingdan-item-box'>
+                <view  class='dingdan-item'><Business_information address="{{item.info.address}}" img="{{item.info.image}}" name="{{item.info.name}}" type_name="{{item.info.type_name}}" /></view>
+              </view>
+              <view wx:else class='dingdan-item-box'>
+                <!-- 图片滚动 -->
+                <scroll-view class="dingdan-img-box" scroll-x="true">
+                  <image wx:key="{{index}}" wx:for="{{item.info}}" class='dingdan-img' src='{{domain}}{{item.image}}'></image>
+                </scroll-view>
+              </view>
+              <!-- 合计 -->
+              <view class='dingdan-heji'>
+                <view class='dingdan-heji-L'>{{item.type_name}}</view>
+                <view class='dingdan-heji-R'>合计:￥<text>{{item.all_money}}</text></view>
+                <view wx:if="{{item.info.length}}" class='dingdan-heji-M'>共{{item.info.length}}台广告机</view>
+                <view wx:else class='dingdan-heji-M'>共1台广告机</view>
+              </view>
+              <view catchtap='topay' data-item='{{item}}' wx:if="{{item.format_status=='待支付'}}" class='payment'><view>立即支付</view></view>
+              <view wx:if="{{item.format_status=='待上传'}}" catchtap='toload' data-item='{{item}}' class='payment'><view>上传广告</view></view>
+              <view wx:if="{{item.format_status=='待审核'}}" data-item='{{item}}' class='payment'><view>查看详情</view></view>
+              <view wx:if="{{item.format_status=='未通过'}}" catchtap='toload' data-item='{{item}}' class='payment'><view>重新上传</view></view>
+              <view wx:if="{{item.format_status=='已通过'}}" catchtap='toaffirm' data-item='{{item}}' class='payment'><view>确认完成</view></view>
+              <view wx:if="{{item.format_status=='已完成'}}" catchtap='todel' data-item='{{item}}' class='payment'><view>删除订单</view></view>
+              <view wx:if="{{item.format_status=='已取消'}}" catchtap='todel' data-item='{{item}}' class='payment'><view>删除订单</view></view>
+            </view>
+          </view>
+          <!-- 显示什么都没有时显示图片 -->
+            <!-- <kong wx:if="{{allList.length == 0}}" zi="暂无订单"/>
+            <kong wx:if="{{orderObj.order[currentTab].itemArr.length == 0}}" zi="暂无订单"/> -->
+          <!-- 2 -->
+          <view wx:if="{{currentTab != 0}}" wx:key="index" wx:for="{{orderObj.order[currentTab].itemArr}}">
+            <view class='bg'></view>
+            <view bindtap='tounpaid' data-item='{{item}}' class='dingdan-box'>
+              <view class='dingdan-info'>
+                <view class='dingdan-info-L'>{{item.create_time}}</view>
+              </view>
+              <!-- 店家信息 -->
+              <view class='dingdan-item-box'>
+                <view wx:if="{{!item.info.length}}" class='dingdan-item'><Business_information address="{{item.info.address}}" img="{{item.info.image}}" name="{{item.info.name}}" type_name="{{item.info.type_name}}"/></view>
+                <!-- 图片滚动 -->
+                <scroll-view wx:else class="dingdan-img-box" scroll-x="true">
+                  <image wx:key="{{index}}" wx:for="{{item.info}}" class='dingdan-img' src='{{domain}}{{item.image}}'></image>
+                </scroll-view>
+              </view>
+              <!-- 合计 -->
+              <view class='dingdan-heji'>
+                <view class='dingdan-heji-L'>{{item.type_name}}</view>
+                <view class='dingdan-heji-R'>合计:￥<text>{{item.all_money}}</text></view>
+                <view class='dingdan-heji-M'>共1台广告机</view> 
+              </view>
+              <view catchtap='topay' data-item='{{item}}' wx:if="{{item.format_status=='待支付'}}" class='payment'><view>立即支付</view></view>
+              <view wx:if="{{item.format_status=='待上传'}}" catchtap='toload' data-item='{{item}}' class='payment'><view>上传广告</view></view>
+              <view wx:if="{{item.format_status=='待审核'}}" data-item='{{item}}' class='payment'><view>查看详情</view></view>
+              <view wx:if="{{item.format_status=='未通过'}}" catchtap='toload' data-item='{{item}}' class='payment'><view>重新上传</view></view>
+              <view wx:if="{{item.format_status=='已通过'}}" catchtap='toaffirm' data-item='{{item}}' class='payment'><view>确认完成</view></view>
+              <view wx:if="{{item.format_status=='已完成'}}" catchtap='todel' data-item='{{item}}' class='payment'><view>删除订单</view></view>
+              <view wx:if="{{item.format_status=='已取消'}}" catchtap='todel' data-item='{{item}}' class='payment'><view>删除订单</view></view>
+            </view>
+          </view>
+          <view class='bg'></view>
+        </swiper-item>
+    </swiper>
+</view>
