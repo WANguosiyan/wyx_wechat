@@ -40,13 +40,15 @@ Page({
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
-    this.dateInit();
+    let todaydate = year + month + now.getDate();
     this.setData({
       year: year,
       month: month,
       months: month,
       isToday: '' + year + month + now.getDate(),
     })
+    this.dateInit();
+   
     // 判断是不是已经过去的日期
     var today = this.data.isToday;
     var yue = this.data.month;
@@ -54,11 +56,14 @@ Page({
     var dangnian = Number(today.slice(0, 4));//今年
     var dangyue = Number(today.slice(4, 5));//本月
     var jingtian = Number(this.data.isToday);//当天
+    console.log(jingtian);
+    console.log(this.data.dateArr);
+
     // 判断年份
     if (nian < dangnian) {
       var dateArr = this.data.dateArr;
       dateArr.forEach((r) => {
-        r.isPass = true
+        r.isPass = true;
       })
       this.setData({
         dateArr: dateArr
@@ -69,6 +74,7 @@ Page({
         var dateArr = this.data.dateArr;
         dateArr.forEach((r) => {
           r.isPass = true;
+          r.todaystatus=-1
         })
         this.setData({
           dateArr: dateArr
@@ -76,9 +82,16 @@ Page({
       } else if (yue == dangyue) {
         // 判断日期
         var dateArr = this.data.dateArr;
+
         dateArr.forEach((r) => {
+          console.log(r.isToday);
           if (r.isToday < jingtian) {
             r.isPass = true;
+            r.todaystatus = -1
+          } else if (r.isToday = jingtian){
+            r.todaystatus = 0
+          }else{
+            r.todaystatus =1
           }
         })
         this.setData({
@@ -116,6 +129,7 @@ Page({
     var allQuan = this.data.allQuan;
     if (allDan.length != 0 || allQuan.length != 0) {
       var dateArr = this.data.dateArr;
+      console.log(dateArr);
       this.setData({ multiIndex2: e.detail.value });
       var miao = Number(e.detail.value[0] * 60 + e.detail.value[1]);
       this.setData({
@@ -697,6 +711,8 @@ Page({
   },
   // 设置日历
   dateInit: function (setYear, setMonth) {
+    var jingtian = Number(this.data.isToday);//当天
+    console.log(jingtian);
     //全部时间的月份都是按0~11基准，显示月份才+1
     let dateArr = [];
     let calendarArr = [];                       //需要遍历的日历数组数据
@@ -759,9 +775,24 @@ Page({
         }
       }
     }
+    //gsy 
+    var length = dateArr.length;
+    for(var i=0;i<length;i++){
+     
+      
+        if (dateArr[i].isToday < jingtian){
+          dateArr[i].todaystatus = -1
+        }else if(dateArr[i].isToday > jingtian){
+          dateArr[i].todaystatus = 0
+        }else{
+          dateArr[i].todaystatus = 1
+        }
+      
+    }
     this.setData({
       dateArr: dateArr
     })
+    console.log(this.data.dateArr);
     let nowDate = new Date();
     let nowYear = nowDate.getFullYear();
     let nowMonth = nowDate.getMonth() + 1;

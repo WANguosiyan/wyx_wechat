@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/duration/duration",
+    "pages/index/index",
+   
     "pages/all_orders/video/video",
     "pages/index/SetMeal/SetMeal",
     "pages/all_orders/all_orders",

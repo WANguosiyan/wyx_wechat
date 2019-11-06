@@ -34,7 +34,10 @@
     <view class='date-box'>
       <block wx:for='{{dateArr}}' wx:key='index'>
         <view class='riqi {{item.state==2?"nowDay":""}}'>
-          <view class='date-head' data-key='{{index}}' data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}' bindtap='select_date'>
+          <view wx:if="{{item.todaystatus != -1}}" class='date-head' data-key='{{index}}' data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}' bindtap='select_date'>
+            <view class='{{item.isPass?"zicolor":""}}'>{{item.dateNum}}</view>
+          </view>
+          <view wx:else class='date-head' data-key='{{index}}' data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}'>
             <view class='{{item.isPass?"zicolor":""}}'>{{item.dateNum}}</view>
           </view>
         </view>
