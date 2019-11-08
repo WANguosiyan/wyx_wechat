@@ -35,17 +35,26 @@ Page({
     isTodayWeek: false,
     todayIndex: 0,
     buyNum:1,
+    dangqiantian:''
   },
   onLoad: function () {
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
     let todaydate = year + month + now.getDate();
+    console.log(now.getDate());
+    if(now.getDate() < 10){
+      var dangqiantian = ''+year + month + '0'+ now.getDate();
+    }
+    console.log(dangqiantian);
+
+
     this.setData({
       year: year,
       month: month,
       months: month,
       isToday: '' + year + month + now.getDate(),
+      dangqiantian:dangqiantian
     })
     this.dateInit();
    
@@ -711,8 +720,8 @@ Page({
   },
   // 设置日历
   dateInit: function (setYear, setMonth) {
-    var jingtian = Number(this.data.isToday);//当天
-    console.log(jingtian);
+    var jingtian = Number(this.data.dangqiantian);//当天
+
     //全部时间的月份都是按0~11基准，显示月份才+1
     let dateArr = [];
     let calendarArr = [];                       //需要遍历的日历数组数据
@@ -779,13 +788,14 @@ Page({
     var length = dateArr.length;
     for(var i=0;i<length;i++){
      
-      
-        if (dateArr[i].isToday < jingtian){
-          dateArr[i].todaystatus = -1
-        }else if(dateArr[i].isToday > jingtian){
+      var now_day = ''+dateArr[i].dateYear + dateArr[i].dateYue + dateArr[i].dateDay;
+      console.log(now_day);
+        if (now_day == jingtian){
           dateArr[i].todaystatus = 0
-        }else{
+        }else if(now_day > jingtian){
           dateArr[i].todaystatus = 1
+        }else{
+          dateArr[i].todaystatus = -1
         }
       
     }
