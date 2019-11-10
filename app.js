@@ -19,7 +19,7 @@ App({
     type: "",
     cityleft: [],
     typeList: [],
-    domain: "https://test.ahwyx.com", //域名,
+    domain: "https://ahwyx.com", //域名,
     pagenum: 1,
     statusNum: -1
   },
@@ -39,16 +39,16 @@ App({
         if (res.data.token) {
           that.globalData.userInfo = res.data;
         } else {
-          wx.reLaunch({
-            url: '/pages/register/register'
-          })
+          // wx.reLaunch({
+          //   url: '/pages/register/register'
+          // })
         }
       },
       fail(res) {
         console.log(res);
-        wx.reLaunch({
-          url: '/pages/register/register'
-        })
+        // wx.reLaunch({
+        //   url: '/pages/register/register'
+        // })
       }
     })
     // 获取购物车
@@ -116,5 +116,48 @@ App({
    */
   onError: function (msg) {
 
+  },
+  isLogin:function(){
+    wx.getStorage({
+      key: 'userInfo',
+      success(res) {
+        console.log(res);
+        if (res.data.token) {
+          that.globalData.userInfo = res.data;
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '未登录',
+            success(res) {
+              if (res.confirm) {
+                wx.reLaunch({
+                  url: '/pages/register/register'
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+          
+       
+        }
+      },
+      fail(res) {
+        console.log(res);
+        wx.showModal({
+          title: '提示',
+          content: '未登录',
+          success(res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '/pages/register/register'
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
+    })
   }
 })

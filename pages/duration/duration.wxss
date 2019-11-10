@@ -97,6 +97,7 @@
 .date-box>view{position: relative;display: inline-block;width: 14.285%;color: #282828;text-align: center;vertical-align: middle;}
 .date-head{height: 60rpx;line-height: 60rpx;font-size: 12pt;}
 .nowDay .date-head{width: 60rpx;border-radius: 50%;text-align: center;color: #fff;background-color: #ff9933;margin: 0 auto;}
+.date-head2{width: 60rpx;border-radius: 50%;text-align: center;color: #282828;background-color: rgb(182, 175, 175);margin: 0 auto;height: 60rpx;line-height: 60rpx;font-size: 12pt}
 .riqi{margin-bottom: 15rpx;}
 /* 下一步 */
 .next{

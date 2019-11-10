@@ -91,13 +91,58 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      domain: app.globalData.domain,
-      number: app.globalData.userInfo.userinfo.mobile,
-      headimg: app.globalData.userInfo.userinfo.image,
-      avatar: app.globalData.userInfo.userinfo.avatar,
-      name: app.globalData.userInfo.userinfo.name
+    var that = this;
+    wx.getStorage({
+      key: 'userInfo',
+      success(res) {
+        console.log(res);
+        if (res.data.token) {
+          app.globalData.userInfo = res.data;
+          that.setData({
+            domain: app.globalData.domain,
+            number: app.globalData.userInfo.userinfo.mobile,
+            headimg: app.globalData.userInfo.userinfo.image,
+            avatar: app.globalData.userInfo.userinfo.avatar,
+            name: app.globalData.userInfo.userinfo.name
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '未登录',
+            showCancel:false,
+            success(res) {
+              if (res.confirm) {
+                wx.reLaunch({
+                  url: '/pages/register/register'
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+
+
+        }
+      },
+      fail(res) {
+        console.log(res);
+        wx.showModal({
+          title: '提示',
+          content: '未登录',
+          showCancel:false,
+          success(res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '/pages/register/register'
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
     })
+   
   },
 
   /**

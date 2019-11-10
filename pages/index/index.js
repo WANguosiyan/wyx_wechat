@@ -51,9 +51,51 @@ Page({
   },
   // 跳转到分销页
   share: function () {
-    wx.navigateTo({
-      url: '/pages/index/share/share',
+    wx.getStorage({
+      key: 'userInfo',
+      success(res) {
+        console.log(res);
+        if (res.data.token) {
+          app.globalData.userInfo = res.data;
+          wx.navigateTo({
+            url: '/pages/index/share/share',
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '未登录',
+            success(res) {
+              if (res.confirm) {
+                wx.reLaunch({
+                  url: '/pages/register/register'
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+
+
+        }
+      },
+      fail(res) {
+        console.log(res);
+        wx.showModal({
+          title: '提示',
+          content: '未登录',
+          success(res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '/pages/register/register'
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
     })
+   
   },
   // 申请加盟
   application: function () {

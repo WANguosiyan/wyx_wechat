@@ -93,6 +93,8 @@ Component({
         // 返回事件
         back: function(e){
           let pages = getCurrentPages();
+          console.log(this.data.agreement);
+          console.log(this.data.tomine);
           if (this.data.agreement == 10){
             wx.navigateBack({
               delta: 1
@@ -118,12 +120,12 @@ Component({
           }else{
             if (!this.data.tomine){
               let prevPage = pages[pages.length - 2];
-              prevPage.setData({
-                newsNum:0,
-                money:this.data.money,
-                headimg: app.globalData.userInfo.userinfo.image,
-                name: app.globalData.userInfo.userinfo.name
-              })
+              // prevPage.setData({
+              //   newsNum:0,
+              //   money:this.data.money,
+              //   headimg: app.globalData.userInfo.userinfo.image,
+              //   name: app.globalData.userInfo.userinfo.name
+              // })
             }           
           }         
           if (this.data.delta){

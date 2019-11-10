@@ -399,72 +399,116 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    setTimeout(function(){
-      that.setData({
-        domain: app.globalData.domain,
-        typeList: app.globalData.typeList,
-        cityleft: app.globalData.cityleft,
-        heigh: app.globalData.equipmentHeight - 160
-      })
-    },500)
-    // 获取标记城市
-    wx.request({
-      url: app.globalData.domain + '/api/v1/equipment/default/list',
-      method: "GET",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
+    wx.getStorage({
+      key: 'userInfo',
       success(res) {
-        var lists = res.data.data.data;
-        var arr1 = res.data.data.data;
-        that.setData({
-          biaoji:arr1
-        })
-        var arr2 = that.data.biaoji;
-        arr2.forEach((r)=>{
-          r.height = 38;
-          r.choose = false;
-          r.latitude = r.position[1];
-          r.callout.display='ALWAYS';
-          r.callout.textAlign='center';
-          r.callout.borderRadius=50;
-          r.callout.borderColor='#2D70FC';
-          r.callout.borderWidth=1;
-          r.callout.padding = 7;
-          r.callout.color='#2D70FC';
-          r.callout.bgColor='#F8F8F8';
-        })
-        that.setData({
-          allList: arr2,
-          lists: arr2,
-          markers:arr2
-        })
-      },
-      fail(res) {
-        console.log(res.data)
-      }
-    })
-    // 获取消息条数
-    wx.request({
-      url: app.globalData.domain + '/api/v2/user/users/getfeedbacknum',
-      method: "GET",
-      data: {
-        user_id: app.globalData.userInfo.userinfo.id
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success(res) {
-        if (res.data.code == 200) {
-          that.setData({
-            newNum: res.data.data
+        console.log(res);
+        if (res.data.token) {
+          that.globalData.userInfo = res.data;
+          setTimeout(function () {
+            that.setData({
+              domain: app.globalData.domain,
+              typeList: app.globalData.typeList,
+              cityleft: app.globalData.cityleft,
+              heigh: app.globalData.equipmentHeight - 160
+            })
+          }, 500)
+          // 获取标记城市
+          wx.request({
+            url: app.globalData.domain + '/api/v1/equipment/default/list',
+            method: "GET",
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success(res) {
+              var lists = res.data.data.data;
+              var arr1 = res.data.data.data;
+              that.setData({
+                biaoji: arr1
+              })
+              var arr2 = that.data.biaoji;
+              arr2.forEach((r) => {
+                r.height = 38;
+                r.choose = false;
+                r.latitude = r.position[1];
+                r.callout.display = 'ALWAYS';
+                r.callout.textAlign = 'center';
+                r.callout.borderRadius = 50;
+                r.callout.borderColor = '#2D70FC';
+                r.callout.borderWidth = 1;
+                r.callout.padding = 7;
+                r.callout.color = '#2D70FC';
+                r.callout.bgColor = '#F8F8F8';
+              })
+              that.setData({
+                allList: arr2,
+                lists: arr2,
+                markers: arr2
+              })
+            },
+            fail(res) {
+              console.log(res.data)
+            }
           })
+          // 获取消息条数
+          wx.request({
+            url: app.globalData.domain + '/api/v2/user/users/getfeedbacknum',
+            method: "GET",
+            data: {
+              user_id: app.globalData.userInfo.userinfo.id
+            },
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success(res) {
+              if (res.data.code == 200) {
+                that.setData({
+                  newNum: res.data.data
+                })
+              }
+            },
+            fail(res) {
+              console.log(res.data);
+            }
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '未登录',
+            showCancel:false,
+            success(res) {
+              if (res.confirm) {
+                wx.reLaunch({
+                  url: '/pages/register/register'
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+
+
         }
       },
       fail(res) {
-        console.log(res.data);
+        console.log(res);
+        wx.showModal({
+          title: '提示',
+          content: '未登录',
+          showCancel:false,
+          success(res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '/pages/register/register'
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
       }
     })
+   
   },
 
   /**

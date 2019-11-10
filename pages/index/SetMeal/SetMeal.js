@@ -34,70 +34,116 @@ Page({
   },
   // 立即购买
   topay:function(e){
-    console.log(e.currentTarget.dataset.disabled);
-    if (e.currentTarget.dataset.disabled != 1){
-      if (this.data.buyNum == 1) {
-        wx.showLoading({
-          title: '请稍后',
-        })
-        var id = this.data.comboInfo.detail.equipment_id;
-        var type = this.data.comboInfo.detail.type;
-        var timezone = this.data.comboInfo.buy_time;
-        var time_long = this.data.comboInfo.detail.time_long;
-        var combo_id = this.data.comboInfo.detail.id;
-        var arr2 = [];
-        wx.request({
-          url: app.globalData.domain + '/api/v2/equipment/default/choose-time-zone',
-          method: "POST",
-          data: {
-            user_id: app.globalData.userInfo.userinfo.id,
-            token: app.globalData.userInfo.token,
-            equipment_id: id,
-            time_long: time_long,
-            type: type,
-            play_long: time_long,
-            timezone: timezone,
-            combo_id: combo_id
-          },
-          header: {
-            'content-type': 'application/x-www-form-urlencoded'
-          },
-          success(res) {
-            wx.hideLoading()
-            console.log(res);
-            if (res.data.code == 400) {
-              wx.showToast({
-                title: '订单生成失败',
-                icon: 'none',
-                duration: 1500
-              });
-              setTimeout(function () {
-                wx.switchTab({
-                  url: '/pages/index/index'
-                })
-              }, 1000)
-            } else {
-              wx.navigateTo({
-                url: '/pages/submit/submit?id=' + res.data.data.order_id + '&delID1=' + arr2
+    var that = this;
+    //判断是否登录
+    wx.getStorage({
+      key: 'userInfo',
+      success(res) {
+        console.log(res);
+        if (res.data.token) {
+          that.globalData.userInfo = res.data;
+          if (e.currentTarget.dataset.disabled != 1) {
+            if (that.data.buyNum == 1) {
+              wx.showLoading({
+                title: '请稍后',
+              })
+              var id = that.data.comboInfo.detail.equipment_id;
+              var type = that.data.comboInfo.detail.type;
+              var timezone = that.data.comboInfo.buy_time;
+              var time_long = that.data.comboInfo.detail.time_long;
+              var combo_id = that.data.comboInfo.detail.id;
+              var arr2 = [];
+              wx.request({
+                url: app.globalData.domain + '/api/v2/equipment/default/choose-time-zone',
+                method: "POST",
+                data: {
+                  user_id: app.globalData.userInfo.userinfo.id,
+                  token: app.globalData.userInfo.token,
+                  equipment_id: id,
+                  time_long: time_long,
+                  type: type,
+                  play_long: time_long,
+                  timezone: timezone,
+                  combo_id: combo_id
+                },
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded'
+                },
+                success(res) {
+                  wx.hideLoading()
+                  console.log(res);
+                  if (res.data.code == 400) {
+                    wx.showToast({
+                      title: '订单生成失败',
+                      icon: 'none',
+                      duration: 1500
+                    });
+                    setTimeout(function () {
+                      wx.switchTab({
+                        url: '/pages/index/index'
+                      })
+                    }, 1000)
+                  } else {
+                    wx.navigateTo({
+                      url: '/pages/submit/submit?id=' + res.data.data.order_id + '&delID1=' + arr2
+                    })
+                  }
+                },
+                fail(res) {
+                  console.log(res.data)
+                }
               })
             }
-          },
-          fail(res) {
-            console.log(res.data)
+            this.setData({
+              buyNum: 2
+            })
+          } else {
+            wx.showToast({
+              title: '套餐已过期',
+              icon: 'none',
+              duration: 1500
+            });
+          }
+
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '未登录',
+            success(res) {
+              if (res.confirm) {
+                wx.reLaunch({
+                  url: '/pages/register/register'
+                })
+                return;
+              } else if (res.cancel) {
+                return;
+              }
+            }
+          })
+
+
+        }
+      },
+      fail(res) {
+        
+        wx.showModal({
+          title: '提示',
+          content: '未登录',
+          success(res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '/pages/register/register'
+              })
+              return;
+            } else if (res.cancel) {
+              return;
+            }
           }
         })
       }
-      this.setData({
-        buyNum: 2
-      })
-    }else{
-      wx.showToast({
-        title: '套餐已过期',
-        icon: 'none',
-        duration: 1500
-      });
-    }
-    
+    })
+    console.log(e.currentTarget.dataset.disabled);
+   
   },
   
   /**

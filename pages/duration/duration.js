@@ -250,110 +250,152 @@ Page({
   // 跳转到提交订单
   submit: function () {
     var that = this;
-    var riqi = this.data.riqi;
-    var allDan = this.data.allDan;
-    var allQuan = this.data.allQuan;
-    var arr = allQuan.concat(allDan);
-    var arr2 = [];
-    arr.forEach((r) => {
-      if (r.state == 2) {
-        arr2.push(r);
-      }
-    })
-    var second = this.data.second;
-    console.log(second);
-    var inpCishu = this.data.inpCishu;
-    var shiduan = this.data.shiduan;
-    var checkSD = [];
-    shiduan.forEach((r) => {
-      if (r.isCheck) {
-        checkSD.push(r.shi)
-      }
-    })
-    var arr = [];
-    var obj = {};
-    var timezone = [];
-    var riqi = arr2;
-    if (riqi.length != 0 && second != 0 && inpCishu != 0 && checkSD.length != 0) {
-      if(this.data.buyNum == 1){
-        riqi.forEach((r) => {
-          arr = r.isToday.split("");
-          if (arr.length < 8) {
-            r.isToday = r.dateYear.toString() + r.dateYue.toString() + r.dateDay.toString()
-          }
-        })
-        for (let i = 0; i < riqi.length; i++) {
-          for (let j = 0; j < checkSD.length; j++) {
-            obj = {
-              yue: riqi[i].isToday,
-              shi: checkSD[j]
+    wx.getStorage({
+      key: 'userInfo',
+      success(res) {
+        console.log(res);
+        if (res.data.token) {
+          app.globalData.userInfo = res.data;
+          var riqi = that.data.riqi;
+          var allDan = that.data.allDan;
+          var allQuan = that.data.allQuan;
+          var arr = allQuan.concat(allDan);
+          var arr2 = [];
+          arr.forEach((r) => {
+            if (r.state == 2) {
+              arr2.push(r);
             }
-            timezone.push(obj);
-          }
-        }
-        var arr5 = JSON.stringify(timezone);
-        var chooseCar = app.globalData.chooseCar;
-        var arr2 = [];
-        chooseCar.forEach((r) => {
-          arr2.push(r.id);
-        })
-        var id = arr2.toString();
-        wx.showLoading({
-          title: '请稍等',
-        })
-        wx.request({
-          url: app.globalData.domain + '/api/v2/equipment/default/choose-time-zone',
-          method: "POST",
-          data: {
-            user_id: app.globalData.userInfo.userinfo.id,
-            token: app.globalData.userInfo.token,
-            equipment_id: id,
-            time_long: second,
-            type: app.globalData.type,
-            play_num: inpCishu,
-            play_long: second,
-            timezone: arr5,
-          },
-          header: {
-            'content-type': 'application/x-www-form-urlencoded'
-          },
-          success(res) {
-            wx.hideLoading()
-            if (res.data.code == 400) {
-              wx.showToast({
-                title: res.data.msg,
-                icon: 'none',
-                duration: 2000
-              });
-              setTimeout(function () {
-                wx.switchTab({
-                  url: '/pages/index/index'
-                })
-              }, 3000)
+          })
+          var second = that.data.second;
+          console.log(second);
+          var inpCishu = that.data.inpCishu;
+          var shiduan = that.data.shiduan;
+          var checkSD = [];
+          shiduan.forEach((r) => {
+            if (r.isCheck) {
+              checkSD.push(r.shi)
+            }
+          })
+          var arr = [];
+          var obj = {};
+          var timezone = [];
+          var riqi = arr2;
+          if (riqi.length != 0 && second != 0 && inpCishu != 0 && checkSD.length != 0) {
+            if (that.data.buyNum == 1) {
+              riqi.forEach((r) => {
+                arr = r.isToday.split("");
+                if (arr.length < 8) {
+                  r.isToday = r.dateYear.toString() + r.dateYue.toString() + r.dateDay.toString()
+                }
+              })
+              for (let i = 0; i < riqi.length; i++) {
+                for (let j = 0; j < checkSD.length; j++) {
+                  obj = {
+                    yue: riqi[i].isToday,
+                    shi: checkSD[j]
+                  }
+                  timezone.push(obj);
+                }
+              }
+              var arr5 = JSON.stringify(timezone);
+              var chooseCar = app.globalData.chooseCar;
+              var arr2 = [];
+              chooseCar.forEach((r) => {
+                arr2.push(r.id);
+              })
+              var id = arr2.toString();
+              wx.showLoading({
+                title: '请稍等',
+              })
+              wx.request({
+                url: app.globalData.domain + '/api/v2/equipment/default/choose-time-zone',
+                method: "POST",
+                data: {
+                  user_id: app.globalData.userInfo.userinfo.id,
+                  token: app.globalData.userInfo.token,
+                  equipment_id: id,
+                  time_long: second,
+                  type: app.globalData.type,
+                  play_num: inpCishu,
+                  play_long: second,
+                  timezone: arr5,
+                },
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded'
+                },
+                success(res) {
+                  wx.hideLoading()
+                  if (res.data.code == 400) {
+                    wx.showToast({
+                      title: res.data.msg,
+                      icon: 'none',
+                      duration: 2000
+                    });
+                    setTimeout(function () {
+                      wx.switchTab({
+                        url: '/pages/index/index'
+                      })
+                    }, 3000)
+                  } else {
+                    wx.navigateTo({
+                      url: '/pages/submit/submit?id=' + res.data.data.order_id + '&delID1=' + arr2
+                    })
+                  }
+                },
+                fail(res) {
+                  console.log(res.data)
+                }
+              })
             } else {
-              wx.navigateTo({
-                url: '/pages/submit/submit?id=' + res.data.data.order_id + '&delID1=' + arr2
+              this.setData({
+                buyNum: 2
               })
             }
-          },
-          fail(res) {
-            console.log(res.data)
+
+          } else {
+            wx.showToast({
+              title: '请输入完整信息',
+              icon: 'none',
+              duration: 1500
+            });
+          }
+
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '未登录',
+            success(res) {
+              if (res.confirm) {
+                wx.reLaunch({
+                  url: '/pages/register/register'
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+
+
+        }
+      },
+      fail(res) {
+        console.log(res);
+        wx.showModal({
+          title: '提示',
+          content: '未登录',
+          success(res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '/pages/register/register'
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
           }
         })
-      }else{
-        this.setData({
-          buyNum:2
-        })
       }
-      
-    } else {
-      wx.showToast({
-        title: '请输入完整信息',
-        icon: 'none',
-        duration: 1500
-      });
-    }
-
+    })
+   
   },
 
   // 全选

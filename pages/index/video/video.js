@@ -291,93 +291,135 @@ Page({
   // 提交
   submit:function(){
     var that = this;
-    var shopname = this.data.shopname;
-    var industry = this.data.industry;
-    var shopkeeper = this.data.shopkeeper;
-    var tel = this.data.tel;
-    var province = this.data.province;
-    var city = this.data.city;
-    var area = this.data.area;
-    var address = this.data.address;
-    var desc = this.data.desc;
-    var email = this.data.email;
-    var listShop = that.data.listShop
-    var listQR = that.data.listQR
-    var listOther = that.data.listOther
-    var userid = app.globalData.userInfo.userinfo.id;
-    if (shopname && industry && shopkeeper && tel && province && city && area && address && desc && email && listShop.length != 0 && listQR.length != 0 && listOther.length != 0){
-      var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
-      if (tel.length === 0) {
-        wx.showToast({
-          title: '手机号输入错误！',
-          icon: 'none',
-          duration: 1500
-        });
-        return false;
-      } else if (tel.length < 11) {
-        wx.showToast({
-          title: '手机号输入错误！',
-          icon: 'none',
-          duration: 1500
-        });
-        return false;
-      } else if (!myreg.test(tel)) {
-        wx.showToast({
-          title: '手机号输入错误！',
-          icon: 'none',
-          duration: 1500
-        });
-        return false;
-      } else {
-        // 提交
-        wx.request({
-          url: app.globalData.domain + '/api/v2/video/index/addvideo',
-          method: "POST",
-          data: {
-            shopname: shopname,
-            industry: industry,
-            name: shopkeeper,
-            tel: tel,
-            email: email,
-            province: province,
-            city: city,
-            area: area,
-            address: address,
-            userid: userid,
-            desc: desc,
-            shoppic: listShop,
-            qrcode: listQR,
-            otherpic: listOther,
-          },
-          header: {
-            'content-type': 'application/x-www-form-urlencoded'
-          },
-          success(res) {
-            console.log(res.data)
+    wx.getStorage({
+      key: 'userInfo',
+      success(res) {
+        console.log(res);
+        if (res.data.token) {
+          app.globalData.userInfo = res.data;
+          var shopname = that.data.shopname;
+          var industry = that.data.industry;
+          var shopkeeper = that.data.shopkeeper;
+          var tel = that.data.tel;
+          var province = that.data.province;
+          var city = that.data.city;
+          var area = that.data.area;
+          var address = that.data.address;
+          var desc = that.data.desc;
+          var email = that.data.email;
+          var listShop = that.data.listShop
+          var listQR = that.data.listQR
+          var listOther = that.data.listOther
+          var userid = app.globalData.userInfo.userinfo.id;
+          if (shopname && industry && shopkeeper && tel && province && city && area && address && desc && email && listShop.length != 0 && listQR.length != 0 && listOther.length != 0) {
+            var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+            if (tel.length === 0) {
+              wx.showToast({
+                title: '手机号输入错误！',
+                icon: 'none',
+                duration: 1500
+              });
+              return false;
+            } else if (tel.length < 11) {
+              wx.showToast({
+                title: '手机号输入错误！',
+                icon: 'none',
+                duration: 1500
+              });
+              return false;
+            } else if (!myreg.test(tel)) {
+              wx.showToast({
+                title: '手机号输入错误！',
+                icon: 'none',
+                duration: 1500
+              });
+              return false;
+            } else {
+              // 提交
+              wx.request({
+                url: app.globalData.domain + '/api/v2/video/index/addvideo',
+                method: "POST",
+                data: {
+                  shopname: shopname,
+                  industry: industry,
+                  name: shopkeeper,
+                  tel: tel,
+                  email: email,
+                  province: province,
+                  city: city,
+                  area: area,
+                  address: address,
+                  userid: userid,
+                  desc: desc,
+                  shoppic: listShop,
+                  qrcode: listQR,
+                  otherpic: listOther,
+                },
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded'
+                },
+                success(res) {
+                  console.log(res.data)
+                  wx.showToast({
+                    title: '上传成功',
+                    icon: 'none',
+                    duration: 1500
+                  });
+                  setTimeout(function () {
+                    wx.switchTab({
+                      url: '/pages/index/index'
+                    })
+                  }, 1000)
+                },
+                fail(res) {
+                  console.log(res.data)
+                }
+              })
+            }
+          } else {
             wx.showToast({
-              title: '上传成功',
+              title: '请输入完整信息',
               icon: 'none',
               duration: 1500
             });
-            setTimeout(function () {
-              wx.switchTab({
-                url: '/pages/index/index'
+          }
+
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '未登录',
+            success(res) {
+              if (res.confirm) {
+                wx.reLaunch({
+                  url: '/pages/register/register'
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+
+
+        }
+      },
+      fail(res) {
+        console.log(res);
+        wx.showModal({
+          title: '提示',
+          content: '未登录',
+          success(res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '/pages/register/register'
               })
-            }, 1000)
-          },
-          fail(res) {
-            console.log(res.data)
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
           }
         })
       }
-    }else{
-      wx.showToast({
-        title: '请输入完整信息',
-        icon: 'none',
-        duration: 1500
-      });
-    }
-
+    })
+   
   },
   /**
    * 生命周期函数--监听页面加载

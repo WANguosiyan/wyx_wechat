@@ -29,136 +29,179 @@ Page({
   // 提交
   submit: function () {
     var that = this;
-    var unitname = this.data.unitname;
-    var industry = this.data.industry;
-    var name = this.data.name;
-    var tel = this.data.tel;
-    var equipment_num = this.data.equipment_num;
-    var province = this.data.province;
-    var city = this.data.city;
-    var area = this.data.area;
-    var equipment_type = this.data.equipment_type;
-    var address = this.data.address;
-    var userid = app.globalData.userInfo.userinfo.id;
-    var files = this.data.files;
-    var num = Number(this.data.files.length - 1);
-    var imgs = [];
-    if (unitname && industry && name && tel && equipment_num && province && city && area && equipment_type && address){
-      if(files.length!=0){
-        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
-        if (tel.length === 0) {
-          wx.showToast({
-            title: '手机号输入错误！',
-            icon: 'none',
-            duration: 1500
-          });
-          return false;
-        } else if (tel.length < 11) {
-          wx.showToast({
-            title: '手机号输入错误！',
-            icon: 'none',
-            duration: 1500
-          });
-          return false;
-        } else if (!myreg.test(tel)) {
-          wx.showToast({
-            title: '手机号输入错误！',
-            icon: 'none',
-            duration: 1500
-          });
-          return false;
-        } else {
-          for (let i = 0, h = files.length; i < h; i++) {
-            wx.uploadFile({
-              url: app.globalData.domain + '/api/v2/home/index/addimg',
-              filePath: files[i],
-              async: false,
-              name: 'img',
-              formData: {
-                'imgIndex': i
-              },
-              header: {
-                "Content-Type": "multipart/form-data"
-              },
-              success: function (res) {
-                var data = JSON.parse(res.data);
-                if (data.code == 200) {
-                  imgs.push(data.data);
-                }
-                if(i === num){
-                  var list = JSON.stringify(imgs);
-                  // 提交
-                  wx.request({
-                    url: app.globalData.domain + '/api/v2/shop/index/joinus',
-                    method: "POST",
-                    data: {
-                      unitname: unitname,
-                      industry: industry,
-                      name: name,
-                      tel: tel,
-                      equipment_num: equipment_num,
-                      province: province,
-                      city: city,
-                      area: area,
-                      equipment_type: equipment_type,
-                      address: address,
-                      userid: userid,
-                      shoppic: list,
+    wx.getStorage({
+      key: 'userInfo',
+      success(res) {
+        console.log(res);
+        if (res.data.token) {
+          app.globalData.userInfo = res.data;
+          var unitname = that.data.unitname;
+          var industry = that.data.industry;
+          var name = that.data.name;
+          var tel = that.data.tel;
+          var equipment_num = that.data.equipment_num;
+          var province = that.data.province;
+          var city = that.data.city;
+          var area = that.data.area;
+          var equipment_type = that.data.equipment_type;
+          var address = that.data.address;
+          var userid = app.globalData.userInfo.userinfo.id;
+          var files = that.data.files;
+          var num = Number(that.data.files.length - 1);
+          var imgs = [];
+          if (unitname && industry && name && tel && equipment_num && province && city && area && equipment_type && address) {
+            if (files.length != 0) {
+              var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+              if (tel.length === 0) {
+                wx.showToast({
+                  title: '手机号输入错误！',
+                  icon: 'none',
+                  duration: 1500
+                });
+                return false;
+              } else if (tel.length < 11) {
+                wx.showToast({
+                  title: '手机号输入错误！',
+                  icon: 'none',
+                  duration: 1500
+                });
+                return false;
+              } else if (!myreg.test(tel)) {
+                wx.showToast({
+                  title: '手机号输入错误！',
+                  icon: 'none',
+                  duration: 1500
+                });
+                return false;
+              } else {
+                for (let i = 0, h = files.length; i < h; i++) {
+                  wx.uploadFile({
+                    url: app.globalData.domain + '/api/v2/home/index/addimg',
+                    filePath: files[i],
+                    async: false,
+                    name: 'img',
+                    formData: {
+                      'imgIndex': i
                     },
                     header: {
-                      'content-type': 'application/x-www-form-urlencoded'
+                      "Content-Type": "multipart/form-data"
                     },
-                    success(res) {
-                      console.log(res.data)
-                      if (res.data.code == 200){
-                        wx.showToast({
-                          title: '提交成功',
-                          icon: 'none',
-                          duration: 1000
-                        });
-                        setTimeout(function(){
-                          wx.switchTab({
-                            url: '/pages/index/index'
-                          })
-                        },1000) 
+                    success: function (res) {
+                      var data = JSON.parse(res.data);
+                      if (data.code == 200) {
+                        imgs.push(data.data);
+                      }
+                      if (i === num) {
+                        var list = JSON.stringify(imgs);
+                        // 提交
+                        wx.request({
+                          url: app.globalData.domain + '/api/v2/shop/index/joinus',
+                          method: "POST",
+                          data: {
+                            unitname: unitname,
+                            industry: industry,
+                            name: name,
+                            tel: tel,
+                            equipment_num: equipment_num,
+                            province: province,
+                            city: city,
+                            area: area,
+                            equipment_type: equipment_type,
+                            address: address,
+                            userid: userid,
+                            shoppic: list,
+                          },
+                          header: {
+                            'content-type': 'application/x-www-form-urlencoded'
+                          },
+                          success(res) {
+                            console.log(res.data)
+                            if (res.data.code == 200) {
+                              wx.showToast({
+                                title: '提交成功',
+                                icon: 'none',
+                                duration: 1000
+                              });
+                              setTimeout(function () {
+                                wx.switchTab({
+                                  url: '/pages/index/index'
+                                })
+                              }, 1000)
+                            }
+                          },
+                          fail(res) {
+                            console.log(res.data)
+                          }
+                        })
                       }
                     },
-                    fail(res) {
-                      console.log(res.data)
+                    fail: function (res) {
+                      wx.hideToast();
+                      wx.showModal({
+                        title: '错误提示',
+                        content: '上传图片失败',
+                        showCancel: false,
+                        success: function (res) {
+                          console.log(res)
+                        }
+                      })
                     }
-                  })
+                  });
                 }
-              },
-              fail: function (res) {
-                wx.hideToast();
-                wx.showModal({
-                  title: '错误提示',
-                  content: '上传图片失败',
-                  showCancel: false,
-                  success: function (res) {
-                    console.log(res)
-                  }
-                })
               }
+            } else {
+              wx.showToast({
+                title: '请输入完整信息',
+                icon: 'none',
+                duration: 1500
+              });
+            }
+          } else {
+            wx.showToast({
+              title: '请输入完整信息',
+              icon: 'none',
+              duration: 1500
             });
-          }         
+          }
+
+
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '未登录',
+            success(res) {
+              if (res.confirm) {
+                wx.reLaunch({
+                  url: '/pages/register/register'
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+
+
         }
-      }else{
-        wx.showToast({
-          title: '请输入完整信息',
-          icon: 'none',
-          duration: 1500
-        });
+      },
+      fail(res) {
+        console.log(res);
+        wx.showModal({
+          title: '提示',
+          content: '未登录',
+          success(res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '/pages/register/register'
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
       }
-    }else{
-      wx.showToast({
-        title: '请输入完整信息',
-        icon: 'none',
-        duration: 1500
-      });
-    }
-
-
+    })
+  
+   
 
   },
   // 获取单位名称
