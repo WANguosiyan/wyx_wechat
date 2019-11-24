@@ -58,9 +58,27 @@
   <view class='time-box'>
     <view class='time-box-zi'>选择播放时段</view>
     <view class='time-item-box'>
-      <view bindtap="translate" wx:for='{{shiduan}}' data-timeIn='{{index}}' wx:key='' class="{{item.isCheck?'time-itemF':'time-item'}}">
-        <view class="{{allSecond <= item.time_long?'time-item-topF':'time-item-top'}} {{item.isCheck?'time-itemR':''}}">{{item.hour}}</view>
-        <view class="{{item.isshow&&allSecond <= item.time_long?'time-item-bottomF':'time-item-bottom'}}">剩余{{item.timelong}}钟</view>
+      <view bindtap="translate" wx:for='{{shiduan}}' data-timeIn='{{index}}' wx:key='' class="{{item.isCheck?'time-itemF':'time-item'}}" data-is_sale="{{item.is_sale}}">
+      <view wx:if="{{item.is_sale && item.isshow&&allSecond <= item.time_long }}">
+        <picker bindchange="bindPickerChange" value="0" range="{{array}}" disabled="{{picker_status}}">
+            <view class="{{allSecond <= item.time_long?'time-item-topF':'time-item-top'}} {{item.isCheck?'time-itemR':''}}">{{item.hour}}              </view>
+              <view class="{{item.isshow&&allSecond <= item.time_long?'time-item-bottomF':'time-item-bottom'}}" wx:if="{{item.is_sale}}">剩余{{item.timelong}}钟</view>
+          <view class="time-item-bottom" wx:else="{{item.is_sale}}">该时段未开放                 </view>
+          <view class="picker">
+              当前选择：{{array[index]}}
+          </view>
+  </picker>
+      </view>
+  <view wx:else>
+       
+            <view class="{{allSecond <= item.time_long?'time-item-topF':'time-item-top'}} {{item.isCheck?'time-itemR':''}}">{{item.hour}}              </view>
+              <view class="{{item.isshow&&allSecond <= item.time_long?'time-item-bottomF':'time-item-bottom'}}" wx:if="{{item.is_sale}}">剩余{{item.timelong}}钟</view>
+          <view class="time-item-bottom" wx:else="{{item.is_sale}}">该时段未开放                 </view>
+        
+      </view>
+ 
+  
+       
       </view>
     </view>
   </view>

@@ -35,7 +35,9 @@ Page({
     isTodayWeek: false,
     todayIndex: 0,
     buyNum:1,
-    dangqiantian:''
+    dangqiantian:'',
+    array:['0~10分钟','10~20分钟','20~30分钟','30~40分钟','40~50分钟','50~60分钟'],
+    picker_status:true
   },
   onLoad: function () {
     let now = new Date();
@@ -45,6 +47,8 @@ Page({
     console.log(now.getDate());
     if(now.getDate() < 10){
       var dangqiantian = ''+year + month + '0'+ now.getDate();
+    }else{
+      var dangqiantian = '' + year + month  + now.getDate();
     }
     console.log(dangqiantian);
 
@@ -108,6 +112,13 @@ Page({
         })
       }
     }
+  },
+  //时分秒弹框
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
   },
   onShow() {
     var shiduan = this.data.shiduan;
@@ -206,7 +217,8 @@ Page({
       this.setData({
         isNumBox: false,
         ismasklayer: false,
-        allSecond: allSecond
+        allSecond: allSecond,
+        picker_status:true
       })
     }
 
@@ -228,6 +240,17 @@ Page({
   },
   //选择时段
   translate: function (e) {
+    var that = this;
+    var is_sale = e.currentTarget.dataset.is_sale;
+    if(is_sale == false){
+      wx.showToast({
+        title: '抱歉!该时段暂未开放',
+        icon: 'none',
+        duration: 1500
+      });
+      return;
+    }
+
     if (!this.data.inpCishu) {
       wx.showToast({
         title: '请先输入每个时段重复的次数',
@@ -763,7 +786,7 @@ Page({
   // 设置日历
   dateInit: function (setYear, setMonth) {
     var jingtian = Number(this.data.dangqiantian);//当天
-
+    console.log(jingtian);
     //全部时间的月份都是按0~11基准，显示月份才+1
     let dateArr = [];
     let calendarArr = [];                       //需要遍历的日历数组数据
@@ -827,6 +850,7 @@ Page({
       }
     }
     //gsy 
+    console.log(jingtian);
     var length = dateArr.length;
     for(var i=0;i<length;i++){
      

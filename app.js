@@ -19,7 +19,7 @@ App({
     type: "",
     cityleft: [],
     typeList: [],
-    domain: "https://ahwyx.com", //域名,
+    domain: "http://test.ahwyx.com", //域名,
     pagenum: 1,
     statusNum: -1
   },
